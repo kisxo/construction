@@ -69,13 +69,13 @@ const carouselConfig = {
 
     <div class="py-12 px-6">
       <h2 class="text-6xl font-bold text-center">Our Signature Projects</h2>
-      <div class="grid grid-cols-3 gap-6 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 py-8">
         <div v-for="image in images">
           <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" />
         </div>
       </div>
       <h2 class="text-6xl font-bold text-center pt-12">Completed Projects</h2>
-      <div class="grid grid-cols-2 gap-6 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
         <div v-for="image in images.slice(0, 2)">
           <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" />
         </div>
@@ -83,7 +83,7 @@ const carouselConfig = {
 
       <div class="text-4xl pt-12 w-full">
         <h2 class="mx-auto font-bold">Key Features</h2>
-        <div class="grid grid-cols-3">
+        <div class="grid grid-cols-1 lg:grid-cols-3">
           <div v-for="keyFeature in keyFeatures">
               <img :src="keyFeature.icon" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" />
           </div>

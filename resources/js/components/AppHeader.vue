@@ -98,15 +98,20 @@ const rightNavItems: NavItem[] = [
         <div class="border-b border-sidebar-border/80">
             <InfoBar />
             <div class="mx-auto flex h-16 items-center px-4 md:max-w-7xl">
-                <!-- Mobile Menu -->
-                <div class="lg:hidden">
+
+                <Link :href="dashboard()" class="flex items-center gap-x-2">
+                <AppLogo />
+                </Link>
+
+                                <!-- Mobile Menu -->
+                <div class="lg:hidden ms-auto">
                     <Sheet>
                         <SheetTrigger :as-child="true">
                             <Button variant="ghost" size="icon" class="mr-2 h-9 w-9">
                                 <Menu class="h-5 w-5" />
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="left" class="w-[300px] p-6">
+                        <SheetContent side="right" class="w-[300px] p-6">
                             <SheetTitle class="sr-only">Navigation Menu</SheetTitle>
                             <SheetHeader class="flex justify-start text-left">
                                 <AppLogoIcon class="size-6 fill-current text-black dark:text-white" />
@@ -133,10 +138,6 @@ const rightNavItems: NavItem[] = [
                     </Sheet>
                 </div>
 
-                <Link :href="dashboard()" class="flex items-center gap-x-2">
-                <AppLogo />
-                </Link>
-
                 
 
                 <!-- Desktop Menu -->
@@ -161,7 +162,7 @@ const rightNavItems: NavItem[] = [
                     </NavigationMenu>
                 </div>
 
-                <div class="ml-auto flex items-center space-x-2">
+                <div class="ml-auto hidden lg:flex items-center space-x-2">
                     <div class="flex gap-4">
                         <a v-for="link in rightNavItems" :href="link.href">
                             {{ link.title }}
