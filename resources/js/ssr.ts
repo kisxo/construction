@@ -4,14 +4,15 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createSSRApp, DefineComponent, h } from 'vue';
 import { renderToString } from 'vue/server-renderer';
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+// const appName = import.meta.env.VITE_APP_NAME || 'Sundaram Developers';
+
 
 createServer(
     (page) =>
         createInertiaApp({
             page,
             render: renderToString,
-            title: (title) => (title ? `${title} - ${appName}` : appName),
+            // title: (title) => (title ? `${title} - ${appName}` : appName),
             resolve: (name) =>
                 resolvePageComponent(
                     `./pages/${name}.vue`,

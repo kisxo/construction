@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css';
 import AppLayout from '@/layouts/AppLayout.vue';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+import { Carousel, Slide } from 'vue3-carousel';
 import heroImg1 from "../../images/hero-1.jpeg";
 import heroImg2 from "../../images/hero-2.jpeg";
 import heroImg3 from "../../images/hero-3.jpeg";
-import { Wifi, Leaf, ShieldClose, Building, Shield, Hotel } from 'lucide-vue-next';
+import { Wifi, Leaf, Shield, Hotel } from 'lucide-vue-next';
 import Footer from '@/components/Footer.vue';
+import { useHead } from '@unhead/vue';
 
 const images = [heroImg1, heroImg2, heroImg3];
 
@@ -43,6 +44,22 @@ const carouselConfig = {
   wrapAround: true,
   autoplay: 3000,
 }
+
+const pageTitle = "Home | Sundaram Developers";
+const pageDescription = "Explore affordable and spacious flats in Jorhat with modern amenities. Find your perfect flat in Jorhat today with flexible pricing and great locations.";
+
+useHead({
+  title: pageTitle,
+  meta: [
+    { name: 'description', content: pageDescription },
+    { name: 'keywords', content: 'flat in Jorhat, Jorhat apartments, Sundaram Developers, residential flats Assam, buy flat Jorhat, Jorhat real estate, new flats Jorhat, affordable flats Jorhat, premium apartments Jorhat, Jorhat property developers' },
+    { property: 'og:title', content: pageTitle },
+    { property: 'og:description', content: pageDescription },
+    { property: 'og:type', content: 'website' },
+  ],
+});
+
+
 </script>
 
 <template>
@@ -70,13 +87,13 @@ const carouselConfig = {
     <div class="py-12 px-6">
       <h2 class="text-6xl font-bold text-center">Our Signature Projects</h2>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 py-8">
-        <div v-for="image in images">
+        <div v-for="image in images" :key="image">
           <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" />
         </div>
       </div>
       <h2 class="text-6xl font-bold text-center pt-12">Completed Projects</h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
-        <div v-for="image in images.slice(0, 2)">
+        <div v-for="image in images.slice(0, 2)" :key="image">
           <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" />
         </div>
       </div>
@@ -84,8 +101,8 @@ const carouselConfig = {
       <div class="text-4xl pt-12 w-full">
         <h2 class="mx-auto font-bold">Key Features</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3">
-          <div v-for="keyFeature in keyFeatures">
-              <img :src="keyFeature.icon" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" />
+          <div v-for="keyFeature in keyFeatures" :key="keyFeature.title">
+              <img :src="keyFeature.icon as any" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" />
           </div>
         </div>
       </div>
