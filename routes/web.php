@@ -7,6 +7,14 @@ Route::get('/', function () {
     return Inertia::render('Home');
 })->name('home');
 
+Route::get('/devine-green', function () {
+    return Inertia::render('DevineGreen');
+})->name('devine.green');
+
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+})->name('contact');
+
 Route::get('/flat-in-jorhat', function () {
     return Inertia::render('seo/Jorhat');
 })->name('seo.jorhat.flat');

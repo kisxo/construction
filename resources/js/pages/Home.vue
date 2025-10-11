@@ -3,35 +3,40 @@ import 'vue3-carousel/dist/carousel.css';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { Carousel, Slide } from 'vue3-carousel';
 import heroImg1 from "../../images/hero-1.jpeg";
-import heroImg2 from "../../images/hero-2.jpeg";
-import heroImg3 from "../../images/hero-3.jpeg";
-import { Wifi, Leaf, Shield, Hotel } from 'lucide-vue-next';
+// import heroImg2 from "../../images/hero-2.jpeg";
+// import heroImg3 from "../../images/hero-3.jpeg";
+import img1Sm from "../../images/hero-sm.webp";
+import img2Sm from "../../images/hero-2sm.webp";
+import img3Sm from "../../images/hero-3sm.webp";
 import Footer from '@/components/Footer.vue';
-import { useHead } from '@unhead/vue';
+import { useHead } from '@vueuse/head';
+import { Fa6Hotel, Fa6Leaf, Fa6Shield, Fa6Wifi } from 'vue-icons-plus/fa6';
 
-const images = [heroImg1, heroImg2, heroImg3];
+// const images = [heroImg1, heroImg2, heroImg3];
+
+const imagesSm = [img1Sm, img2Sm, img3Sm];
 
 const keyFeatures = [
   {
-    icon: Wifi,
+    icon: Fa6Wifi,
     title: 'Smart Home Technology',
     desc: 'Connected living made simple',
     img: heroImg1
   },
   {
-    icon: Leaf,
+    icon: Fa6Leaf,
     title: 'Eco-Friendly Design',
     desc: 'Sustainable and green Spaces',
     img: heroImg1
   },
 {
-  icon: Hotel,
+  icon: Fa6Hotel,
     title: 'Eco-Friendly Design',
     desc: '24/7 Security',
     img: heroImg1
 },
 {
-  icon: Shield,
+  icon: Fa6Shield,
     title: '24/7 Security',
     desc: 'World-class facilities',
     img: heroImg1
@@ -67,7 +72,7 @@ useHead({
     <!-- hero Section -->
     <div class="relative w-full h-[70vh] overflow-hidden">
       <Carousel v-bind="carouselConfig" class="w-full h-full">
-        <Slide v-for="image in images" :key="image">
+        <Slide v-for="image in imagesSm" :key="image">
           <div class="w-full h-[70vh] relative">
             <img :src="image" alt="Hero Slide" class="w-full h-full object-cover object-center brightness-40" />
           </div>
@@ -84,29 +89,34 @@ useHead({
       </div>
     </div>
 
-    <div class="py-12 px-6">
-      <h2 class="text-6xl font-bold text-center">Our Signature Projects</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 py-8">
-        <div v-for="image in images" :key="image">
-          <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" />
+    <section class="py-14 px-4">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center kanit-semibold">Our Signature Projects</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 py-8">
+          <div v-for="image in imagesSm" :key="image">
+            <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center shadow rounded hover:shadow-xl transition duration-300" />
+          </div>
         </div>
-      </div>
-      <h2 class="text-6xl font-bold text-center pt-12">Completed Projects</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
-        <div v-for="image in images.slice(0, 2)" :key="image">
-          <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" />
-        </div>
-      </div>
-
-      <div class="text-4xl pt-12 w-full">
-        <h2 class="mx-auto font-bold">Key Features</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-3">
-          <div v-for="keyFeature in keyFeatures" :key="keyFeature.title">
-              <img :src="keyFeature.icon as any" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" />
+        <h2 class="text-6xl font-bold text-center pt-12">Completed Projects</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
+          <div v-for="image in imagesSm.slice(0, 2)" :key="image">
+            <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" />
           </div>
         </div>
       </div>
-    </div>
-    <Footer/>
+    </section>
+
+    <section class="text-3xl py-14 w-full bg-sky-100">
+        <h2 class="mx-auto font-bold mb-8 kanit-medium text-center">Key Features</h2>
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div v-for="keyFeature in keyFeatures" :key="keyFeature.title" class="bg-white p-4 py-8 shadow rounded-lg text-center hover:shadow-xl transition duration-300">
+            <component :is="keyFeature.icon" class="w-12 h-12 mx-auto text-primary" />
+              <!-- <img :src="keyFeature.icon as any" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" /> -->
+            <h3 class="mt-5 font-semibold text-xl">{{ keyFeature.title }}</h3>
+            <p class="text-sm">{{ keyFeature.desc }}</p>
+          </div>
+        </div>
+      </section>
+    <Footer />
   </AppLayout>
 </template>
