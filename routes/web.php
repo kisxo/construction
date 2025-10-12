@@ -11,6 +11,10 @@ Route::get('/devine-green', function () {
     return Inertia::render('DevineGreen');
 })->name('devine.green');
 
+Route::get('/sky-link-high', function () {
+    return Inertia::render('SkyLinkHigh');
+})->name('sky.link.high');
+
 Route::get('/contact', function () {
     return Inertia::render('Contact');
 })->name('contact');

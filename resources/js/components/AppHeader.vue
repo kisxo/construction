@@ -2,10 +2,8 @@
 import AppLogo from '@/components/AppLogo.vue';
 import AppLogoIcon from '@/components/AppLogoIcon.vue';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
-    DropdownMenu,
     DropdownMenuContent,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
@@ -22,21 +20,15 @@ import {
     SheetTitle,
     SheetTrigger,
 } from '@/components/ui/sheet';
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from '@/components/ui/tooltip';
-import UserMenuContent from '@/components/UserMenuContent.vue';
-import { getInitials } from '@/composables/useInitials';
 import { toUrl, urlIsActive } from '@/lib/utils';
-import { dashboard, home } from '@/routes';
 import type { BreadcrumbItem, NavItem } from '@/types';
 import { InertiaLinkProps, Link, usePage } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid, Menu, Search } from 'lucide-vue-next';
+import { BookOpen, Folder, Menu } from 'lucide-vue-next';
 import { computed } from 'vue';
 import InfoBar from './InfoBar.vue';
+import { home } from '@/routes';
+import { DropdownMenuArrow, DropdownMenuItem, DropdownMenuPortal, DropdownMenuRoot, DropdownMenuSeparator } from 'reka-ui';
+import { ref } from 'vue';
 
 interface Props {
     breadcrumbs?: BreadcrumbItem[];
@@ -47,7 +39,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const page = usePage();
-const auth = computed(() => page.props.auth);
+// const auth = computed(() => page.props.auth);
 
 const isCurrentRoute = computed(
     () => (url: NonNullable<InertiaLinkProps['href']>) =>
@@ -69,12 +61,9 @@ const mainNavItems: NavItem[] = [
     // },
 ];
 
+const toggleProjectsMenu = ref(false)
+
 const rightNavItems: NavItem[] = [
-    {
-        title: 'Projects',
-        href: '/projects',
-        icon: Folder,
-    },
     {
         title: 'Home',
         href: '/',
@@ -164,9 +153,38 @@ const rightNavItems: NavItem[] = [
 
                 <div class="ml-auto hidden lg:flex items-center space-x-2">
                     <div class="flex gap-4">
-                        <a v-for="link in rightNavItems" :href="link.href">
+                        <DropdownMenuRoot v-model:open="toggleProjectsMenu">
+                            <DropdownMenuTrigger
+                                        class=" cursor-pointer"
+                                        aria-label="projects menu"
+                                        >
+                                        <!-- <Icon icon="radix-icons:hamburger-menu" /> -->
+                                        Projects
+                                    </DropdownMenuTrigger>
+                                <DropdownMenuPortal>
+                                    <DropdownMenuContent
+                                        class="min-w-[220px] outline-none bg-white rounded-md p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade"
+                                        :side-offset="5"
+                                    >
+                                        <DropdownMenuItem
+                                        value="New Tab"
+                                        class="group leading-none text-grass11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green1"
+                                        
+                                        >
+                                        Divine Green
+                                        </DropdownMenuItem>
+                                        <DropdownMenuSeparator class="h-[1px] bg-green6 m-[5px]" />
+                                       
+                                        
+                                        <DropdownMenuSeparator class="h-[1px] bg-green6 m-[5px]" />
+
+                                        <DropdownMenuArrow class="fill-white" />
+                                    </DropdownMenuContent>
+                                </DropdownMenuPortal>
+                            </DropdownMenuRoot>
+                        <Link v-for="link in rightNavItems" :href="link.href" :key="link.title">
                             {{ link.title }}
-                        </a>
+                        </Link>
                     </div>
                     <!-- <div class="relative flex items-center space-x-1">
                         <Button variant="ghost" size="icon" class="group h-9 w-9 cursor-pointer">

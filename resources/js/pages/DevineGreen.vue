@@ -10,7 +10,7 @@ import img2Sm from "../../images/hero-2sm.webp";
 import img3Sm from "../../images/hero-3sm.webp";
 import Footer from '@/components/Footer.vue';
 import { useHead } from '@vueuse/head';
-import { Io5Barbell, Io5Business, Io5Home, Io5LocationSharp, Io5PeopleCircle } from 'vue-icons-plus/io5';
+import { Io5Barbell, Io5Bus, Io5Business, Io5Home, Io5LocationSharp } from 'vue-icons-plus/io5';
 // import { Building2 } from 'lucide-vue-next';
 import { Fa6Child, Fa6Intercom, Fa6PersonWalking, Fa6SquareParking, Fa6Tv, Fa6UmbrellaBeach, Fa6Wifi } from 'vue-icons-plus/fa6';
 import { MdGroupWork, MdRoofing, MdRoundedCorner } from 'vue-icons-plus/md';
@@ -37,7 +37,7 @@ const locationBenefits = [
     desc: "Shopping and Entertainment",
   },
   {
-    icon: Io5PeopleCircle,
+    icon: Io5Bus,
     title: "Walking distance 10 meter",
     desc: "public transport",
   },
@@ -205,6 +205,21 @@ const locationAdvantages = [
   }
 ];
 
+const specifications = [
+  {
+    title: "Structure & Flooring",
+    desc: "RCC Foundations designed for soil strata and Zone V earthquake resistance. Vitrified tiles by Johnson/Kajaria in all rooms."
+  },
+  {
+    title: "Kitchen & Toilets",
+    desc: "Granite kitchen counter with stainless steel sink. Superior quality CP fittings from Roca/Duravit/Jaguar in toilets."
+  },
+  {
+    title: "Doors, Windows & Electrical",
+    desc: "Teak wood frame main door. UPVC/Aluminum windows. Concealed copper wiring with modular switches from Schneider/Havells/Siemens."
+  },
+];
+
 const carouselConfig = {
   itemsToShow: 1,
   wrapAround: true,
@@ -249,7 +264,7 @@ useHead({
       </div>
     </div>
 
-    <section class="bg-sky-100 py-16 px-4">
+    <section class="bg-green-50 py-16 px-4">
       <h2 class="text-3xl font-bold text-center kanit-semibold">Welcome to Divine Green</h2>
       <div class="container mx-auto grid md:grid-cols-2 gap-6 my-8">
         <div>
@@ -267,7 +282,7 @@ useHead({
       <h2 class="text-3xl font-extrabold text-center kanit-semibold">Prime Location Benefits</h2>
       <div class="container mx-auto mt-6">
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-10 py-8">
-          <div v-for="benefit in locationBenefits" :key="benefit.title" class="bg-white p-4 rounded-lg text-center hover:shadow-xl transition shadow-xs duration-300">
+          <div v-for="benefit in locationBenefits" :key="benefit.title" class="bg-white p-4 py-8 rounded-lg text-center hover:shadow-xl transition shadow-xs duration-300">
             <component :is="benefit.icon" class="w-10 h-10 mx-auto text-teal-700" />
             <h3 class="mt-5 font-semibold text-xl text-teal-900 mb-1 kanit-medium">{{ benefit.title }}</h3>
             <p class="text-zinc-600">{{ benefit.desc }}</p>
@@ -275,7 +290,7 @@ useHead({
         </div>
       </div>
     </section>
-    <section class="bg-sky-100 p-4 py-14">
+    <section class="bg-green-50 p-4 py-14">
       <h2 class="text-3xl font-extrabold text-center kanit-semibold">Features & Amenities</h2>
       <div class="container mx-auto mt-6">
         <div class="grid lg:grid-cols-3 gap-4 md:gap-6 py-8">
@@ -320,7 +335,7 @@ useHead({
         </div>
       </div>
     </section>
-    <section class="bg-sky-100 p-4 py-14">
+    <section class="bg-green-50 p-4 py-14">
       <h2 class="text-3xl font-extrabold text-center kanit-semibold">Location Advantages</h2>
       <div class="container mx-auto mt-6">
         <div class="grid lg:grid-cols-2 gap-4 md:gap-6 py-8">
@@ -336,12 +351,34 @@ useHead({
         </div>
       </div>
     </section>
-    <section class="bg-zinc-100 p-4 py-8">
-      <div class="container mx-auto">
-        <h2 class="text-6xl font-bold text-center pt-12">Completed Projects</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 py-8">
-          <div v-for="image in imagesSm.slice(0, 2)" :key="image">
-            <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" />
+    <section class="bg-zinc-100 p-4 py-14">
+      <h2 class="text-3xl font-extrabold text-center kanit-semibold">Specifications</h2>
+      <div class="container mx-auto mt-6">
+        <div class="grid lg:grid-cols-3 gap-4 md:gap-6 py-8">
+          <div v-for="spec in specifications" :key="spec.title" class="bg-white px-5 py-8 rounded-lg text-center shadow-xs hover:shadow-xl transition duration-300">
+            <!-- <component :is="feature.icon" class="w-6 h-6 text-teal-700" /> -->
+            <h3 class="font-semibold text-xl text-teal-900 kanit-medium mb-6">{{ spec.title }}</h3>
+            <p class="text-zinc-700 text-justify">{{ spec.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-green-50 p-4 py-8">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center pt-12 kanit-medium">Contact Us For Booking</h2>
+        <div class="flex justify-around gap-6 py-8">
+          <div class="space-y-1 text-center tracking-wider">
+            <p class="font-bold text-lg mb-2 tracking-normal">Phone Numbers:</p>
+            <p>+91 98868 47886</p>
+            <p>+91 91013 38923</p>
+            <p>+91 87218 81264</p>
+          </div>
+          <div class="text-center">
+            <p class="font-bold mb-2 text-lg">Site Office</p>
+            <p>Ahom Gaon, Katapara, Guwahati</p>
+            <p class="font-bold mb-2 text-lg mt-8">Main Office</p>
+            <p>Divine Developers, A.T. Road, Tarajan, Jorhat, Assam</p>
           </div>
         </div>
       </div>
