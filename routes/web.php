@@ -7,6 +7,10 @@ Route::get('/', function () {
     return Inertia::render('Home');
 })->name('home');
 
+Route::get('/about-us', function () {
+    return Inertia::render('About');
+})->name('about');
+
 Route::get('/devine-green', function () {
     return Inertia::render('DevineGreen');
 })->name('devine.green');

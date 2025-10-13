@@ -219,13 +219,13 @@ useHead({
         <section class="p-8 lg:px-16">
       <div class="container grid grid-cols-1 md:grid-cols-3 bg-blue-600 py-5">
         <CountingCard :to="1999" :duration="1000" label="Since" />
-        <CountingCard :to="405" :duration="1250" label="Clients" postfix="+" class="border-x-3 border-white"/>
+        <CountingCard :to="405" :duration="1250" label="Clients" postfix="+" class="lg:border-x-3 border-white"/>
         <CountingCard :to="53" :duration="1500" label="Projects" postfix="+"/>
       </div>
     </section>
 
 
-    <section class="p-8 lg:px-16 py-">
+    <section class="p-8 lg:px-16">
       <h2 class="text-center">Ready to Find Your dream Home?</h2>
       <div class="container max-w-8xl mx-auto p-4">
         <div class="flex justify-center gap-6 text-lg mb-6">
