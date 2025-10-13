@@ -46,9 +46,10 @@
     <!-- Back to Top Button -->
     <button
       @click="scrollToTop"
-      class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg shadow-lg transition"
+      class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg shadow-lg transition"
     >
-      <i class="las la-angle-up text-lg"></i>
+      <!-- <i class="las la-angle-up text-lg"></i> -->
+       <ArrowBigUp class="size-5"/>
     </button>
   </footer>
 </template>
@@ -58,6 +59,7 @@ import { ref, onMounted } from "vue";
 import AppLogoIcon from "./AppLogoIcon.vue";
 import AppLogo from "./AppLogo.vue";
 import { Building } from "lucide-vue-next";
+import { ArrowBigUp } from "lucide-vue-next";
 
 const totalVisitors = ref(0);
 const todayVisitors = ref(0);
