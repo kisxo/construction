@@ -240,7 +240,7 @@ useHead({
         </div>
         <div class="flex justify-center text-sm">
           <button
-            class="flex gap-2 bg-orange-600 text-white font-semibold items-center rounded-xs px-5 py-2 shadow cursor-pointer hover:shadow-lg">
+            class="flex gap-2 bg-[#ff4c4c] text-white font-semibold items-center rounded-xs px-5 py-2 shadow cursor-pointer hover:shadow-lg">
             <span>Contact Us</span>
             <Io5Call class="w-4" />
           </button>
