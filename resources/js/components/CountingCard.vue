@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-blue-700 text-sky-100 py-10">
+    <div class="text-sky-100 py-3">
         <h4 class="text-5xl font-bold text-center">
-            {{ displayValue }}
+            {{ displayValue }} {{ postfix }}
         </h4>
         <p class="text-center text-xl">{{ props.label }}</p>
     </div>
@@ -12,7 +12,8 @@
   const props = defineProps({ 
     to: { type: Number, required: true },
     duration: { type: Number, default: 1000 },
-    label: { type: String, default: "" }
+    label: { type: String, default: "" },
+    postfix: { type: String, default: "" }
   });
   const displayValue = ref(0);
   

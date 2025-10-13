@@ -12,7 +12,7 @@
           :alt="title"
           :title="title"
         />
-        <div class="reka-card-title backdrop-blur-[2px] bg-black/30">
+        <div class="reka-card-title bg-black/50 text-center">
           <h3>{{ title }}</h3>
         </div>
       </div>
@@ -52,23 +52,31 @@
     backface-visibility: hidden;
   }
   .reka-card:hover .reka-card-img {
-    transform: scale(1.12) translateY(-6px);
+    transform: scale(1.08) translateY(-6px);
   }
-  .reka-card-title {
+  /* .reka-card-title {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 2;
-    color: #fff;
+    color: #bbbbbb;
     padding: 14px 18px 10px 18px;
     text-align: left;
+  } */
+  .reka-card-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #bbb;
+    padding: 4px;
   }
-  .reka-card-title h3 {
+ /* .reka-card-title h3 {
     margin: 0;
     font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: 0.04em;
-  }
+  } */
   </style>
   

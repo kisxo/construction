@@ -40,18 +40,18 @@ const keyFeatures = [
     desc: 'Sustainable and green Spaces',
     img: heroImg1
   },
-{
-  icon: Fa6Hotel,
+  {
+    icon: Fa6Hotel,
     title: 'Eco-Friendly Design',
     desc: '24/7 Security',
     img: heroImg1
-},
-{
-  icon: Fa6Shield,
+  },
+  {
+    icon: Fa6Shield,
     title: '24/7 Security',
     desc: 'World-class facilities',
     img: heroImg1
-}
+  }
 ];
 
 const signatureProjects = [
@@ -144,107 +144,109 @@ useHead({
       </div>
     </section>
 
-    <section class="py-14 px-4 bg-zinc-100">
-      <div class="container mx-auto">
-        <h2 class="text-5xl text-center kanit-medium">Our Signature Projects</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 py-14">
+    <section class="p-8 lg:px-16 pt-16 bg-neutral-100">
+      <div class="">
+        <h2 class="text-center ">Our Signature Projects</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 py-8">
           <div v-for="signature in signatureProjects" :key="signature.title">
             <!-- <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center shadow rounded hover:shadow-xl transition duration-300" /> -->
-            <ImageCard
-              className="rounded-lg shadow h-[300px]"
-              :image="signature.image"
-              :title="signature.title"
-              :link="signature.link"
-            />
+            <ImageCard className="hover:border border-black shadow h-[300px]" :image="signature.image"
+              :title="signature.title" :link="signature.link" />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="text-5xl py-14 w-full">
-      <div class="container mx-auto">
-        <h2 class="text-center kanit-medium">Completed Projects</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-14">
+    <section class="p-8 lg:px-16 bg-neutral-100">
+      <div class="">
+        <h2 class="text-center">Completed Projects</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
           <div v-for="completed in completedProjects" :key="completed.title">
             <!-- <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" /> -->
-            <ImageCard
-              className="rounded-lg shadow h-[300px]"
-              :image="completed.image"
-              :title="completed.title"
-              :link="completed.link"
-            />
+            <ImageCard className="shadow h-[300px]" :image="completed.image" :title="completed.title"
+              :link="completed.link" />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="text-5xl py-14 w-full bg-zinc-100">
-        <h2 class="mx-auto font-bold kanit-medium text-center">Key Features</h2>
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 p-4 py-14">
-          <div v-for="keyFeature in keyFeatures" :key="keyFeature.title" class="bg-white p-4 border py-8 shadow-md rounded-lg text-center hover:shadow-xl transition duration-300">
-            <component :is="keyFeature.icon" class="w-8 h-8 mx-auto text-green-600" />
-              <!-- <img :src="keyFeature.icon as any" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" /> -->
-            <h3 class="mt-5 font-semibold text-xl">{{ keyFeature.title }}</h3>
-            <p class="text-sm">{{ keyFeature.desc }}</p>
+    <section class="p-8 lg:px-16 bg-neutral-100">
+      <h2 class="mx-auto text-center">Key Features</h2>
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 p-4 py-8">
+        <div v-for="keyFeature in keyFeatures" :key="keyFeature.title" class=" p-4 py-8 rounded-lg text-center">
+          <component :is="keyFeature.icon" class="size-16 mx-auto text-blue-500" />
+          <!-- <img :src="keyFeature.icon as any" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" /> -->
+          <h3 class="mt-5 text-xl">{{ keyFeature.title }}</h3>
+          <p class="">{{ keyFeature.desc }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-8 lg:px-16 w-full pt-16">
+      <h2 class="text-center">About Us</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
+        <div style="position: relative; width: 100%; max-width: 560px; aspect-ratio: 16/9; overflow: hidden;">
+          <iframe src="https://www.youtube.com/embed/EEIYufLHfso?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=EEIYufLHfso&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;rel=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="true" title="Video" style="width:100%; height:100%; border:0; display:block; object-fit:cover; pointer-events: none; cursor: default;"> </iframe>
+        </div>
+
+
+        <div class="flex flex-col justify-center gap-10">
+          <h3 class="text-4xl">Welcome to Sundaram Developers</h3>
+          <p>Sundaram Developers is a steadily-growing real estate company engaged in construction of several real
+            estate projects across the Upper Assam to meet the growing demand of an emergent India’s Look East Policy.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-8 lg:px-16 bg-white">
+      <h2 class="text-center">
+        Board Of Directors
+      </h2>
+      <div class="space-y-6">
+        <div v-for="director in directors" class="grid lg:grid-cols-2">
+          <div class="flex justify-center">
+            <img :src="director.img" alt=""></img>
+          </div>
+          <div class="flex justify-center flex-col text-center gap-3">
+            <h2 class="text-3xl font-medium border-e-4 border-black py-2 border-b-1">{{ director.name }}</h2>
+            <p>{{ director.desc }}</p>
           </div>
         </div>
-      </section>
-      <section class="text-5xl py-14 w-full">
-        <h2 class="mx-auto font-bold mb-8 kanit-medium text-center">About Us</h2>
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 p-4">
-          <div class="p-4">
-            <!-- <video controls="false" autoplay class="max-h-[320px]"><source :src="clip1" type="video/mp4"></video> -->
-            <div style="position: relative; width: 100%; max-width: 560px; aspect-ratio: 16/9; overflow: hidden;">
-              <iframe src="https://www.youtube.com/embed/EEIYufLHfso?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=EEIYufLHfso&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;rel=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="false" title="Video" style="width:100%; height:100%; border:0; display:block; object-fit:cover; pointer-events: none; cursor: default;">
-              </iframe>
-            </div>
+      </div>
+    </section>
+
+        <section class="p-8 lg:px-16">
+      <div class="container grid grid-cols-1 md:grid-cols-3 bg-blue-600 py-5">
+        <CountingCard :to="1999" :duration="1000" label="Since" />
+        <CountingCard :to="405" :duration="1250" label="Clients" postfix="+" class="border-x-3 border-white"/>
+        <CountingCard :to="53" :duration="1500" label="Projects" postfix="+"/>
+      </div>
+    </section>
+
+
+    <section class="p-8 lg:px-16 py-">
+      <h2 class="text-center">Ready to Find Your dream Home?</h2>
+      <div class="container max-w-8xl mx-auto p-4">
+        <div class="flex justify-center gap-6 text-lg mb-6">
+          <div class="flex gap-2">
+            <Io5Call />
+            <span>9886847886</span>
           </div>
-          <div class="p-4 flex flex-col justify-center">
-            <h3 class="text-3xl kanit-medium mb-4 lg:mb-8">Welcome to Sundaram Developers</h3>
-            <p class="text-lg">Sundaram Developers is a steadily-growing real estate company engaged in construction of several real estate projects across the Upper Assam to meet the growing demand of an emergent India’s Look East Policy.</p>
-          </div>
-        </div>
-      </section>
-      <section class="text-5xl py-14 w-full">
-        <h2 class="mx-auto font-bold mb-8 kanit-medium text-center">Board Of Directors</h2>
-        <div class="container max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-18 p-4">
-          <div v-for="director in directors" :key="director.name" class="flex flex-col xl:flex-row justify-center items-center xl:items-end gap-4">
-            <div>
-              <img :src="director.img" class="max-h-[280px] max-w-[200] object-cover" :alt="director.name"/>
-            </div>
-            <div class="text-center xl:text-left">
-              <h3 class="text-2xl kanit-semibold mb-2">{{ director.name }}</h3>
-              <p class="text-lg text-zinc-700">{{ director.desc }}</p>
-            </div>
+          <div class="flex gap-2">
+            <Io5Mail />
+            <span>sundaramconstjrt15@gmail.com</span>
           </div>
         </div>
-      </section>
-      <section class="text-5xl py-14 w-full bg-zinc-100">
-        <div class="container max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-1 p-4">
-          <CountingCard :to="512" :duration="2000" label="since" v-for="index in 3" :key="index"/>
+        <div class="flex justify-center text-sm">
+          <button
+            class="flex gap-2 bg-orange-600 text-white font-semibold items-center rounded-xs px-5 py-2 shadow cursor-pointer hover:shadow-lg">
+            <span>Contact Us</span>
+            <Io5Call class="w-4" />
+          </button>
         </div>
-      </section>
-      <section class="text-5xl py-14 w-full">
-        <h2 class="mx-auto font-bold mb-8 kanit-medium text-center">Ready to Find Your dream Home?</h2>
-        <div class="container max-w-8xl mx-auto p-4">
-          <div class="flex justify-center gap-6 text-lg mb-6">
-            <div class="flex gap-2">
-              <Io5Call />
-              <span>9886847886</span>
-            </div>
-            <div class="flex gap-2">
-              <Io5Mail />
-              <span>sundaramconstjrt15@gmail.com</span>
-            </div>
-          </div>
-          <div class="flex justify-center text-sm">
-            <button class="flex gap-2 bg-orange-600 text-white font-semibold items-center rounded-lg px-5 py-2 shadow cursor-pointer hover:shadow-lg">
-              <span>Contact Us</span>
-              <Io5Call class="w-4"/>
-            </button>
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
     <Footer />
   </AppLayout>
 </template>
