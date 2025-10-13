@@ -10,6 +10,17 @@ Route::get('/', function () {
 Route::get('/divine-green', function () {
     return Inertia::render('DivineGreen');
 })->name('divine.green');
+Route::get('/about-us', function () {
+    return Inertia::render('About');
+})->name('about');
+
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+})->name('contact');
+
+Route::get('/divine-green', function () {
+    return Inertia::render('DivineGreen');
+})->name('divine.green');
 
 Route::get('/sky-link-height', function () {
     return Inertia::render('SkyLinkHeight');
