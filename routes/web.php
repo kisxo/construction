@@ -11,6 +11,10 @@ Route::get('/about-us', function () {
     return Inertia::render('About');
 })->name('about');
 
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+})->name('contact');
+
 Route::get('/devine-green', function () {
     return Inertia::render('DevineGreen');
 })->name('devine.green');
