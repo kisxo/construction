@@ -7,13 +7,17 @@ Route::get('/', function () {
     return Inertia::render('Home');
 })->name('home');
 
-Route::get('/devine-green', function () {
-    return Inertia::render('DevineGreen');
-})->name('devine.green');
+Route::get('/divine-green', function () {
+    return Inertia::render('DivineGreen');
+})->name('divine.green');
 
-Route::get('/sky-link-high', function () {
-    return Inertia::render('SkyLinkHigh');
-})->name('sky.link.high');
+Route::get('/sky-link-height', function () {
+    return Inertia::render('SkyLinkHeight');
+})->name('sky.link.height');
+
+Route::get('/horo-gauri', function () {
+    return Inertia::render('HoroGauri');
+})->name('horo.gauri');
 
 Route::get('/contact', function () {
     return Inertia::render('Contact');

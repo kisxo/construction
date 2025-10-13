@@ -171,7 +171,14 @@ const rightNavItems: NavItem[] = [
                                         class="group leading-none text-grass11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green1"
                                         
                                         >
-                                        Divine Green
+                                        <a href="/divine-green">Divine Green</a>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem
+                                        value="New Tab"
+                                        class="group leading-none text-grass11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green1"
+                                        
+                                        >
+                                        <a href="/sky-link-height">Sky Link Height</a>
                                         </DropdownMenuItem>
                                         <DropdownMenuSeparator class="h-[1px] bg-green6 m-[5px]" />
                                        

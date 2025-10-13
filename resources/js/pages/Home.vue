@@ -98,6 +98,24 @@ const directors = [
   }
 ];
 
+const countscard = [
+  {
+    to: 1999,
+    label: "Since",
+    isPlus: false
+  },
+  {
+    to: 5405,
+    label: "Clients",
+    isPlus: true
+  },
+  {
+    to: 53,
+    label: "Projects",
+    isPlus: true
+  }
+];
+
 
 const carouselConfig = {
   itemsToShow: 1,
@@ -161,7 +179,7 @@ useHead({
       </div>
     </section>
 
-    <section class="text-5xl py-14 w-full">
+    <section class="text-5xl py-14 px-4 w-full">
       <div class="container mx-auto">
         <h2 class="text-center kanit-medium">Completed Projects</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-14">
@@ -221,7 +239,7 @@ useHead({
       </section>
       <section class="text-5xl py-14 w-full bg-zinc-100">
         <div class="container max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-1 p-4">
-          <CountingCard :to="512" :duration="2000" label="since" v-for="index in 3" :key="index"/>
+          <CountingCard :to="cc.to" :duration="2000" :isPlus="cc.isPlus" :label="cc.label" v-for="cc in countscard" :key="cc.to"/>
         </div>
       </section>
       <section class="text-5xl py-14 w-full">
