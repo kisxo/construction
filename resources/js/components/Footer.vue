@@ -44,22 +44,20 @@
     </div>
 
     <!-- Back to Top Button -->
-    <button
-      @click="scrollToTop"
-      class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg shadow-lg transition"
+    <a
+      href="#herotop"
+      class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-3xl shadow-lg transition"
     >
+      <component :is="Io5ChevronUp" class="w-6 h-6 mx-auto" />
       <!-- <i class="las la-angle-up text-lg"></i> -->
-       <ArrowBigUp class="size-5"/>
-    </button>
+    </a>
   </footer>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import AppLogoIcon from "./AppLogoIcon.vue";
-import AppLogo from "./AppLogo.vue";
 import { Building } from "lucide-vue-next";
-import { ArrowBigUp } from "lucide-vue-next";
+import { Io5ChevronUp } from "vue-icons-plus/io5";
 
 const totalVisitors = ref(0);
 const todayVisitors = ref(0);
