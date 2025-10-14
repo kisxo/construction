@@ -18,9 +18,9 @@ Route::get('/contact', function () {
     return Inertia::render('Contact');
 })->name('contact');
 
-Route::get('/divine-green', function () {
-    return Inertia::render('DivineGreen');
-})->name('divine.green');
+Route::get('/pb-arcade', function () {
+    return Inertia::render('PBArcade');
+})->name('p.b.arcade');
 
 Route::get('/sky-link-height', function () {
     return Inertia::render('SkyLinkHeight');
@@ -29,6 +29,10 @@ Route::get('/sky-link-height', function () {
 Route::get('/horo-gauri', function () {
     return Inertia::render('HoroGauri');
 })->name('horo.gauri');
+
+Route::get('/shivashree', function () {
+    return Inertia::render('Shivashree');
+})->name('shivashree.apartment');
 
 Route::get('/contact', function () {
     return Inertia::render('Contact');

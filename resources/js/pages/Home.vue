@@ -3,14 +3,11 @@ import 'vue3-carousel/dist/carousel.css';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { Carousel, Slide } from 'vue3-carousel';
 import heroImg1 from "../../images/hero-1.jpeg";
-// import heroImg2 from "../../images/hero-2.jpeg";
-// import heroImg3 from "../../images/hero-3.jpeg";
-import img1Sm from "../../images/hero-sm.webp";
 import img2Sm from "../../images/hero-2sm.webp";
 import img3Sm from "../../images/hero-3sm.webp";
 import divineGreen from "../../images/divine-green.jpg";
 import skyLinkHeight from "../../images/sky-link-land.webp";
-import shivashree from "../../images/Shivashree.webp";
+import shivashree from "../../images/hero-sm.webp";
 import horoGauri from "../../images/HoroGauri.webp";
 import PBArcade from "../../images/PBArcade.webp";
 import Kalyan from "../../images/kalyan.jpg";
@@ -25,7 +22,7 @@ import { Io5Call, Io5Mail } from 'vue-icons-plus/io5';
 
 // const images = [heroImg1, heroImg2, heroImg3];
 
-const imagesSm = [img1Sm, img2Sm, img3Sm];
+const imagesSm = [shivashree, img2Sm, img3Sm];
 
 const keyFeatures = [
   {
@@ -98,23 +95,23 @@ const directors = [
   }
 ];
 
-const countscard = [
-  {
-    to: 1999,
-    label: "Since",
-    isPlus: false
-  },
-  {
-    to: 5405,
-    label: "Clients",
-    isPlus: true
-  },
-  {
-    to: 53,
-    label: "Projects",
-    isPlus: true
-  }
-];
+// const countscard = [
+//   {
+//     to: 1999,
+//     label: "Since",
+//     isPlus: false
+//   },
+//   {
+//     to: 5405,
+//     label: "Clients",
+//     isPlus: true
+//   },
+//   {
+//     to: 53,
+//     label: "Projects",
+//     isPlus: true
+//   }
+// ];
 
 
 const carouselConfig = {
@@ -155,7 +152,7 @@ useHead({
       <!-- ✅ Centered Overlay Content -->
       <div class="absolute inset-0 flex justify-center items-center p-8 lg:pb-16">
         <div class="z-10 p-6 text-white" data-aos="fade-right">
-          <h1 class="text-6xl font-bold">Building Smart Homes <br> for Modern Living</h1>
+          <h1 class="text-5xl sm:text-6xl font-bold">Building Smart Homes <br> for Modern Living</h1>
           <p class="text-lg pt-4">Discover future-ready smart homes with elegant design, and modern features – all in
             the heart of Guwahati.</p>
         </div>
@@ -222,9 +219,9 @@ useHead({
         Board Of Directors
       </h2>
       <div class="space-y-6">
-        <div v-for="director in directors" class="grid lg:grid-cols-2">
+        <div v-for="director in directors" class="grid lg:grid-cols-2" :key="director.name">
           <div class="flex justify-center">
-            <img :src="director.img" alt=""></img>
+            <img :src="director.img" :alt="director.name"/>
           </div>
           <div class="flex justify-center flex-col text-center gap-3">
             <h2 class="text-3xl font-medium border-e-4 border-black py-2 border-b-1">{{ director.name }}</h2>
@@ -235,18 +232,18 @@ useHead({
     </section>
 
         <section class="p-8 lg:px-16">
-      <div class="container grid grid-cols-1 md:grid-cols-3 bg-blue-600 py-5">
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 bg-blue-600 py-5">
         <CountingCard :to="1999" :duration="1000" label="Since" />
-        <CountingCard :to="405" :duration="1250" label="Clients" postfix="+" class="lg:border-x-3 border-white"/>
+        <CountingCard :to="405" :duration="1250" label="Clients" postfix="+" class="md:border-x-3 border-white"/>
         <CountingCard :to="53" :duration="1500" label="Projects" postfix="+"/>
       </div>
     </section>
 
 
-    <section class="p-8 lg:px-16">
+    <section class="p-8 lg:px-16 text-zinc-900">
       <h2 class="text-center">Ready to Find Your dream Home?</h2>
       <div class="container max-w-8xl mx-auto p-4">
-        <div class="flex justify-center gap-6 text-lg mb-6">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 text-lg mb-6">
           <div class="flex gap-2">
             <Io5Call />
             <span>9886847886</span>
@@ -256,12 +253,12 @@ useHead({
             <span>sundaramconstjrt15@gmail.com</span>
           </div>
         </div>
-        <div class="flex justify-center text-sm">
-          <button
-            class="flex gap-2 bg-[#ff4c4c] text-white font-semibold items-center rounded-xs px-5 py-2 shadow cursor-pointer hover:shadow-lg">
+        <div class="flex justify-center ">
+          <a href="/contact"
+            class="flex gap-2 bg-[#ff4c4c] text-white font-semibold items-center rounded px-5 py-2 shadow cursor-pointer hover:shadow-lg hover:scale-95 transition duration-150">
             <span>Contact Us</span>
             <Io5Call class="w-4" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

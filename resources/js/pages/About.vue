@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Footer from '@/components/Footer.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
-import img from "../../images/about.png";
+import img from "../../images/about.webp";
 
 const carouselConfig = {
     itemsToShow: 1,

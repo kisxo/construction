@@ -549,22 +549,15 @@ useHead({
         </div>
       </div>
     </section>
-    <section class="bg-green-50 p-4 py-8">
+    <section class="bg-zinc-100 p-4 py-8">
       <div class="max-w-7xl mx-auto">
         <h2 class="text-3xl font-bold text-center pt-12 kanit-medium">Contact Us For Booking</h2>
-        <div class="flex justify-around gap-6 py-8">
-          <div class="space-y-1 text-center tracking-wider">
-            <p class="font-bold text-lg mb-2 tracking-normal">Phone Numbers:</p>
-            <p>+91 98868 47886</p>
-            <p>+91 91013 38923</p>
-            <p>+91 87218 81264</p>
-          </div>
-          <div class="text-center">
-            <p class="font-bold mb-2 text-lg">Site Office</p>
-            <p>Ahom Gaon, Katapara, Guwahati</p>
-            <p class="font-bold mb-2 text-lg mt-8">Main Office</p>
-            <p>Divine Developers, A.T. Road, Tarajan, Jorhat, Assam</p>
-          </div>
+        <div class="flex justify-center py-6">
+          <a href="/contact"
+            class="flex gap-2 bg-[#ff4c4c] text-white font-semibold items-center rounded px-5 py-2 shadow cursor-pointer hover:shadow-lg hover:scale-95 transition duration-150">
+            <span>Contact Us</span>
+            <Io5Call class="w-4" />
+          </a>
         </div>
       </div>
     </section>

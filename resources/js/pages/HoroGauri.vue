@@ -9,7 +9,7 @@ import img2Sm from "../../images/HoroGauri.webp";
 import img3Sm from "../../images/hero-3sm.webp";
 import Footer from '@/components/Footer.vue';
 import { useHead } from '@vueuse/head';
-import { Io5Airplane, Io5Basket, Io5Bus, Io5School, Io5Train, Io5Water } from 'vue-icons-plus/io5';
+import { Io5Airplane, Io5Basket, Io5Bus, Io5Call, Io5School, Io5Train, Io5Water } from 'vue-icons-plus/io5';
 // import { Building2 } from 'lucide-vue-next';
 import { Fa6Child, Fa6Hospital, Fa6Intercom, Fa6PersonWalking, Fa6Tv, Fa6Wifi } from 'vue-icons-plus/fa6';
 import { MdFireTruck, MdGroupWork, MdSportsTennis } from 'vue-icons-plus/md';
@@ -472,7 +472,7 @@ useHead({
         </div>
       </div>
     </section>
-    <section class="bg-zinc-100 p-4 py-14 transition duration-200">
+    <section class="hidden bg-zinc-100 p-4 py-14 transition duration-200">
       <h2 class="text-3xl font-extrabold text-center kanit-semibold">Apartment Types & Sizes</h2>
       <div class="container mx-auto mt-6">
         <div class="grid md:grid-cols-2 gap-4 lg:gap-14 py-8">
@@ -498,7 +498,7 @@ useHead({
         </div>
       </div>
     </section>
-    <section class="bg-white p-4 py-14">
+    <section class="bg-zinc-100 p-4 py-14">
       <h2 class="text-3xl font-extrabold text-center kanit-semibold">Project Gallery</h2>
       <div class="container mx-auto mt-6">
         <div class="grid md:grid-cols-2 gap-4 md:gap-6 py-8">
@@ -508,10 +508,10 @@ useHead({
         </div>
       </div>
     </section>
-    <section class="bg-green-50 p-4 py-8">
+    <section class="bg-white p-4 py-8">
       <div class="max-w-7xl mx-auto">
         <h2 class="text-3xl font-bold text-center pt-12 kanit-medium">Contact Us For Booking</h2>
-        <div class="flex justify-around gap-6 py-8">
+        <div class="hidden  justify-around gap-6 py-8">
           <div class="space-y-1 text-center tracking-wider">
             <p class="font-bold text-lg mb-2 tracking-normal">Phone Numbers:</p>
             <p>+91 98868 47886</p>
@@ -524,6 +524,13 @@ useHead({
             <p class="font-bold mb-2 text-lg mt-8">Main Office</p>
             <p>Divine Developers, A.T. Road, Tarajan, Jorhat, Assam</p>
           </div>
+        </div>
+        <div class="flex justify-center py-6">
+          <a href="/contact"
+            class="flex gap-2 bg-[#ff4c4c] text-white font-semibold items-center rounded px-5 py-2 shadow cursor-pointer hover:shadow-lg hover:scale-95 transition duration-150">
+            <span>Contact Us</span>
+            <Io5Call class="w-4" />
+          </a>
         </div>
       </div>
     </section>

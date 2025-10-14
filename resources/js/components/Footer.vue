@@ -45,7 +45,7 @@
 
     <!-- Back to Top Button -->
     <a
-      href="#herotop"
+      href="#header-top"
       class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-3xl shadow-lg transition"
     >
       <component :is="Io5ChevronUp" class="w-6 h-6 mx-auto" />
@@ -81,9 +81,9 @@ onMounted(() => {
   todayVisitors.value = visits.today;
 });
 
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
+// function scrollToTop() {
+//   window.scrollTo({ top: 0, behavior: "smooth" });
+// }
 </script>
 
 <style scoped>
