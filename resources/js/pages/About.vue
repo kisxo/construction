@@ -2,12 +2,30 @@
 import Footer from '@/components/Footer.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import img from "../../images/about.webp";
+import { useHead } from '@vueuse/head';
 
 const carouselConfig = {
     itemsToShow: 1,
     wrapAround: true,
     autoplay: 3000,
 }
+
+// SEO
+const pageTitle = "About Us | Sundaram Developers";
+const pageDescription = "Explore affordable and spacious flats in Jorhat with modern amenities. Find your perfect flat in Jorhat today with flexible pricing and great locations.";
+
+useHead({
+  title: pageTitle,
+  meta: [
+    { name: 'description', content: pageDescription },
+    { name: 'keywords', content: 'flat in Jorhat, Jorhat apartments, Sundaram Developers, residential flats Assam, buy flat Jorhat, Jorhat real estate, new flats Jorhat, affordable flats Jorhat, premium apartments Jorhat, Jorhat property developers' },
+    { property: 'og:title', content: pageTitle },
+    { property: 'og:description', content: pageDescription },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.sundaramdevelopers.in/about-us'}
+  ],
+});
+
 
 </script>
 
@@ -18,8 +36,10 @@ const carouselConfig = {
             <Carousel v-bind="carouselConfig" class="w-full h-full">
                 <Slide>
                     <div class="w-full h-[70vh] relative">
-                        <img :src="img" alt="Hero Slide"
-                            class="w-full h-full object-cover object-center brightness-40" />
+                        <img 
+                        :src="img" alt="Hero Slide"
+                        loading="lazy" 
+                        class="w-full h-full object-cover object-center brightness-40" />
                     </div>
                 </Slide>
             </Carousel>

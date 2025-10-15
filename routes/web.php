@@ -22,9 +22,9 @@ Route::get('/pb-arcade', function () {
     return Inertia::render('PBArcade');
 })->name('p.b.arcade');
 
-Route::get('/sky-link-height', function () {
+Route::get('/sky-link-heights', function () {
     return Inertia::render('SkyLinkHeight');
-})->name('sky.link.height');
+})->name('sky.link.heights');
 
 Route::get('/horo-gauri', function () {
     return Inertia::render('HoroGauri');

@@ -80,7 +80,7 @@ const underConstructions = [
     },
     {
         name: "Sky Link Heights",
-        path: "/sky-link-height"
+        path: "/sky-link-heights"
     },
     {
         name: "Shivashree Apartments",
@@ -122,7 +122,7 @@ const rightNavItems: NavItem[] = [
                     },
                     {
                         title: 'Sky Link Height',
-                        href: '/sky-link-height'
+                        href: '/sky-link-heights'
                     },
                     {
                         title: 'Shivashree Apartment',
@@ -159,7 +159,7 @@ const rightNavItems: NavItem[] = [
                 <div class="lg:hidden ms-auto">
                     <Sheet>
                         <SheetTrigger :as-child="true">
-                            <Button variant="ghost" size="icon" class="mr-2 h-9 w-9">
+                            <Button variant="ghost" size="icon" class="mr-2 h-9 w-9" aria-label="menu">
                                 <Menu class="h-5 w-5" />
                             </Button>
                         </SheetTrigger>
@@ -184,13 +184,13 @@ const rightNavItems: NavItem[] = [
                                             <div v-for="subItem in item.subs" :key="subItem.subTitle"  class="mb-4">
                                                 <p class="border-b">{{ subItem.subTitle }}</p>
                                                 <div v-for="ultraSubItem in subItem.items" class="ps-4 mb-1 hover:bg-zinc-200" :key="ultraSubItem.title">
-                                                    <a :href="toUrl(ultraSubItem.href)" rel="noopener noreferrer" >{{ ultraSubItem.title }}</a>
+                                                    <Link :href="toUrl(ultraSubItem.href)" rel="noopener noreferrer" prefetch="hover" >{{ ultraSubItem.title }}</Link>
                                                 </div>
                                             </div>
                                         </div>
                                         <div v-else class="mb-4">
                                             <!-- <component v-if="item.icon" :is="item.icon" class="h-5 w-5" /> -->
-                                            <a :href="toUrl(item.href)" rel="noopener noreferrer" >{{ item.title }}</a>
+                                            <Link :href="toUrl(item.href)" rel="noopener noreferrer" >{{ item.title }}</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +249,7 @@ const rightNavItems: NavItem[] = [
                                         class="group leading-none text-grass11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green1 hover:bg-zinc-300"
                                         
                                         >
-                                        <a :href="project.path">{{ project.name }}</a>
+                                        <Link :href="project.path" prefetch="hover" cache-for="1m">{{ project.name }}</Link>
                                         </DropdownMenuItem>
                                         <!-- <DropdownMenuSeparator class="h-[1px] bg-green-600 m-[5px]" /> -->
                                        
@@ -263,7 +263,7 @@ const rightNavItems: NavItem[] = [
                                         class="group leading-none text-grass11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green1 hover:bg-zinc-300"
                                         
                                         >
-                                        <a :href="project.path">{{ project.name }}</a>
+                                        <Link :href="project.path" prefetch="hover" cache-for="1m">{{ project.name }}</Link>
                                         </DropdownMenuItem>
                                         <DropdownMenuArrow class="fill-white" />
                                     </DropdownMenuContent>

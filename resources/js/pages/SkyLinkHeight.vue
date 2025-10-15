@@ -43,7 +43,7 @@ const locationBenefits = [
   {
     icon: Io5Bus,
     title: "2.8 km",
-    desc: "ISBT Guwahati",
+    desc: "ISBT Jorhat",
   },
   {
     icon: Fa6Hospital,
@@ -61,7 +61,6 @@ const locationBenefits = [
     desc: "Vishal Mega Mart",
   },
 ];
-
 const featuresAmenities = [
   {
     icon: MdGroupWork,
@@ -130,7 +129,6 @@ const featuresAmenities = [
     ]
   }
 ];
-
 const premiumSpecifications = [
   {
     title: "Flooring",
@@ -235,7 +233,6 @@ const premiumSpecifications = [
     ]
   }
 ];
-
 const flatSizes = [
   {
     type: "1 BHK",
@@ -270,7 +267,6 @@ const flatSizes = [
     size: "1270.00 sq. ft.",
   },
 ];
-
 const specifications = [
   {
     title: "Building",
@@ -307,24 +303,26 @@ const specifications = [
     desc: "6 passanger lift."
   },
 ];
-
 const carouselConfig = {
   itemsToShow: 1,
   wrapAround: true,
   autoplay: 3000,
 }
 
-const pageTitle = "Home | Sundaram Developers";
-const pageDescription = "Explore affordable and spacious flats in Jorhat with modern amenities. Find your perfect flat in Jorhat today with flexible pricing and great locations.";
+
+// SEO
+const pageTitle = "Sky Link Heights | Sundaram Developers";
+const pageDescription = "'SKY LINK HEIGHTS' is a contemporary residential development set in the prime locality of Atilagaon, Jorhat. Comprising two elegant 6-storey linear blocks, it blends architecture with nature through cascading terraced garden decks and a stunning double-height sky bridge connecting the 3rd to 5th floors. Overlooking a vibrant central green, this thoughtfully designed space offers a harmonious lifestyle elevated above the ordinary.";
 
 useHead({
   title: pageTitle,
   meta: [
     { name: 'description', content: pageDescription },
-    { name: 'keywords', content: 'flat in Jorhat, Jorhat apartments, Sundaram Developers, residential flats Assam, buy flat Jorhat, Jorhat real estate, new flats Jorhat, affordable flats Jorhat, premium apartments Jorhat, Jorhat property developers' },
+    { name: 'keywords', content: 'sky link height, sky link heights, flats near ISBT Jorhat, flats near jorhat railway, complex in Jorhat, apartments, Sundaram Developers, residential, Assam, real estate, affordable, flats, premium, construction, Jorhat, atialgaon, property, developers' },
     { property: 'og:title', content: pageTitle },
     { property: 'og:description', content: pageDescription },
     { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.sundaramdevelopers.in/sky-link-heights'}
   ],
 });
 
@@ -437,7 +435,10 @@ useHead({
       <div class="container mx-auto mt-6">
         <div class="grid md:grid-cols-2 gap-4 lg:gap-14 py-8">
           <div>
-            <img :src="img1Sm" class="h-full max-h-[370px] aspect-auto w-full object-cover rounded shadow hover:shadow-xl"/>
+            <img 
+            :src="img1Sm" 
+            class="h-full max-h-[370px] aspect-auto w-full object-cover rounded shadow hover:shadow-xl"
+            loading="lazy"/>
           </div>
           <div>
             <table class="table w-full shadow">
@@ -463,7 +464,10 @@ useHead({
       <div class="container mx-auto mt-6">
         <div class="grid md:grid-cols-2 gap-4 md:gap-6 py-8">
           <div v-for="img in gallery" :key="img">
-            <img :src="img" class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg" />
+            <img 
+            :src="img" 
+            class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg" 
+            loading="lazy"/>
           </div>
         </div>
       </div>

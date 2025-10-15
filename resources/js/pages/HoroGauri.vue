@@ -15,8 +15,10 @@ import { Fa6Child, Fa6Hospital, Fa6Intercom, Fa6PersonWalking, Fa6Tv, Fa6Wifi } 
 import { MdFireTruck, MdGroupWork, MdSportsTennis } from 'vue-icons-plus/md';
 import { IpSurveillanceCameras } from 'vue-icons-plus/ip';
 import { RiEarthquakeFill } from 'vue-icons-plus/ri';
-import { MapPin } from 'lucide-vue-next';
+import { Link, MapPin } from 'lucide-vue-next';
 import { GiLift } from 'vue-icons-plus/gi';
+import ExternalLoader from '@/components/ExternalLoader.vue';
+import MapSearch from "../../images/pin.gif";
 
 // const images = [heroImg1, heroImg2, heroImg3];
 
@@ -38,7 +40,7 @@ const locationBenefits = [
   {
     icon: Io5Bus,
     title: "1 km",
-    desc: "ISBT Guwahati",
+    desc: "ISBT Jorhat",
   },
   {
     icon: Fa6Hospital,
@@ -56,7 +58,6 @@ const locationBenefits = [
     desc: "P.B Arcade",
   },
 ];
-
 const featuresAmenities = [
   {
     icon: MdGroupWork,
@@ -121,7 +122,6 @@ const featuresAmenities = [
     ]
   },
 ];
-
 const premiumSpecifications = [
   {
     title: "Flooring",
@@ -250,7 +250,6 @@ const premiumSpecifications = [
     ]
   }
 ];
-
 const flatSizes = [
   {
     type: "1 BHK",
@@ -285,7 +284,6 @@ const flatSizes = [
     size: "1270.00 sq. ft.",
   },
 ];
-
 // const locationAdvantages = [
 //   { 
 //     label: "Sai Vikash Vidya Niketan",
@@ -310,7 +308,6 @@ const flatSizes = [
 //     desc: "19 km (30 min Drive)"
 //   }
 // ];
-
 const specifications = [
   {
     title: "Building",
@@ -354,17 +351,18 @@ const carouselConfig = {
   autoplay: 3000,
 }
 
-const pageTitle = "Home | Sundaram Developers";
-const pageDescription = "Explore affordable and spacious flats in Jorhat with modern amenities. Find your perfect flat in Jorhat today with flexible pricing and great locations.";
+const pageTitle = "Horo Gauri | Sundaram Developers";
+const pageDescription = "Horo Gauri is a premium smart living project comprising 72 thoughtfully designed dwellings across 3 elegant blocks, each rising 6 floors high. Offering a range of modern 2 BHK and 3 BHK apartments, as well as commercial shops, this project blends functionality with contemporary design — ideal for every need and budget.";
 
 useHead({
   title: pageTitle,
   meta: [
     { name: 'description', content: pageDescription },
-    { name: 'keywords', content: 'flat in Jorhat, Jorhat apartments, Sundaram Developers, residential flats Assam, buy flat Jorhat, Jorhat real estate, new flats Jorhat, affordable flats Jorhat, premium apartments Jorhat, Jorhat property developers' },
+    { name: 'keywords', content: 'horo gauri, complex, flats near ISBT Jorhat, flats near jorhat railway, complex in Jorhat, apartments, Sundaram Developers, residential, Assam, real estate, affordable, flats, premium, construction, Jorhat, property, developers' },
     { property: 'og:title', content: pageTitle },
     { property: 'og:description', content: pageDescription },
     { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.sundaramdevelopers.in/horo-gauri'}
   ],
 });
 
@@ -378,7 +376,11 @@ useHead({
       <Carousel v-bind="carouselConfig" class="w-full h-full">
         <Slide v-for="image in imagesSm" :key="image">
           <div class="w-full h-[65vh] relative">
-            <img :src="image" alt="Hero Slide" class="w-full h-full object-cover object-center brightness-40" />
+            <img 
+            :src="image" 
+            alt="Hero Slide" 
+            class="w-full h-full object-cover object-center brightness-40" 
+            loading="lazy"/>
           </div>
         </Slide>
       </Carousel>
@@ -399,9 +401,12 @@ useHead({
     <section class="bg-amber-700 py-16 px-4">
       <h2 class="text-3xl font-bold text-white text-center kanit-semibold">Welcome to Divine Green</h2>
       <div class="container mx-auto grid md:grid-cols-2 gap-8 my-8">
-        <div class="w-full h-[320px] rounded-lg overflow-hidden shadow-lg">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.7676223683775!2d91.72310484578604!3d26.106503218366043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5d57ce4e1d6b%3A0x3448edcd871820a3!2sDivine%20Green%20Apartment!5e0!3m2!1sen!2sin!4v1760332643867!5m2!1sen!2sin" class="w-full h-full" style="border:0;" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <!-- <div class="w-full h-[320px] rounded-lg overflow-hidden shadow-lg">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.7676223683775!2d91.72310484578604!3d26.106503218366043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5d57ce4e1d6b%3A0x3448edcd871820a3!2sDivine%20Green%20Apartment!5e0!3m2!1sen!2sin!4v1760332643867!5m2!1sen!2sin" class="w-full h-full" style="border:0;" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade" />
+        </div> -->
+        <ExternalLoader 
+          iframe-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.7676223683775!2d91.72310484578604!3d26.106503218366043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5d57ce4e1d6b%3A0x3448edcd871820a3!2sDivine%20Green%20Apartment!5e0!3m2!1sen!2sin!4v1760332643867!5m2!1sen!2sin" 
+          :placeholder="MapSearch" />
         <div class="flex flex-col justify-center gap-6 leading-8 text-white text-lg">
           <p><span class="font-semibold italic">Horo Gauri</span> is a premium smart living project comprising <span class="font-semibold italic">72 thoughtfully designed dwellings</span> across <span class="font-semibold italic">3 elegant blocks</span>, each rising <span class="font-semibold italic">6 floors high</span>. Offering a range of <span class="font-semibold italic">modern 2 BHK and 3 BHK apartments</span>, as well as <span class="font-semibold italic">commercial shops</span>, this project blends functionality with contemporary design — ideal for every need and budget.</p>								
         </div>
@@ -461,7 +466,7 @@ useHead({
       <div class="container mx-auto mt-6">
         <div class="grid md:grid-cols-2 gap-4 md:gap-6 py-8">
           <div class="aspect-[16/9] h-auto my-auto">
-            <iframe src="https://www.youtube.com/embed/nwLQ3s3Fwtk?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=nwLQ3s3Fwtk&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;rel=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="false" title="Video" style="width:100%; height:100%; border:0; display:block; object-fit:cover; pointer-events: none; cursor: default;"></iframe>
+            <iframe src="https://www.youtube.com/embed/nwLQ3s3Fwtk?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=nwLQ3s3Fwtk&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;rel=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="false" title="Video" style="width:100%; height:100%; border:0; display:block; object-fit:cover; pointer-events: none; cursor: default;" />
           </div>
           <div class="px-5 py-8 text-left space-y-2 ">
             <p v-for="spec in specifications" :key="spec.title" >
@@ -477,7 +482,7 @@ useHead({
       <div class="container mx-auto mt-6">
         <div class="grid md:grid-cols-2 gap-4 lg:gap-14 py-8">
           <div>
-            <img :src="img3Sm" class="h-full max-h-[370px] aspect-auto w-full object-cover rounded shadow hover:shadow-xl"/>
+            <img :src="img3Sm" class="h-full max-h-[370px] aspect-auto w-full object-cover rounded shadow hover:shadow-xl" alt="divine green, sundaram developers"/>
           </div>
           <div>
             <table class="table w-full shadow">
@@ -503,7 +508,11 @@ useHead({
       <div class="container mx-auto mt-6">
         <div class="grid md:grid-cols-2 gap-4 md:gap-6 py-8">
           <div v-for="img in gallery" :key="img">
-            <img :src="img" class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg" />
+            <img 
+            :src="img" 
+            class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg" 
+            alt="divine green, sundaram developers"
+            loading="lazy" />
           </div>
         </div>
       </div>
@@ -526,11 +535,11 @@ useHead({
           </div>
         </div>
         <div class="flex justify-center py-6">
-          <a href="/contact"
+          <Link href="/contact"
             class="flex gap-2 bg-[#ff4c4c] text-white font-semibold items-center rounded px-5 py-2 shadow cursor-pointer hover:shadow-lg hover:scale-95 transition duration-150">
             <span>Contact Us</span>
             <Io5Call class="w-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

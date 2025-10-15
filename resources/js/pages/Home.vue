@@ -5,13 +5,14 @@ import { Carousel, Slide } from 'vue3-carousel';
 import heroImg1 from "../../images/hero-1.jpeg";
 import img2Sm from "../../images/hero-2sm.webp";
 import img3Sm from "../../images/hero-3sm.webp";
-import divineGreen from "../../images/divine-green.jpg";
-import skyLinkHeight from "../../images/sky-link-land.webp";
+import divineGreen from "../../images/divine-green-640x480.jpg";
+// import skyLinkHeight from "../../images/sky-link-land.webp";
+import skyLinkHeight from "../../images/sky-link-land-720x405.webp";
 import shivashree from "../../images/hero-sm.webp";
-import horoGauri from "../../images/HoroGauri.webp";
-import PBArcade from "../../images/PBArcade.webp";
-import Kalyan from "../../images/kalyan.jpg";
-import Saurabh from "../../images/saurabh.jpg";
+import horoGauri from "../../images/HoroGauri-640x480.webp";
+import PBArcade from "../../images/PBArcade-640x435.webp";
+import Kalyan from "../../images/kalyan.avif";
+import Saurabh from "../../images/saurabh.avif";
 // import clip1 from "../../images/clip1.mp4";
 import Footer from '@/components/Footer.vue';
 import { useHead } from '@vueuse/head';
@@ -19,6 +20,7 @@ import { Fa6Hotel, Fa6Leaf, Fa6Shield, Fa6Wifi } from 'vue-icons-plus/fa6';
 import ImageCard from '@/components/ImageCard.vue';
 import CountingCard from '@/components/CountingCard.vue';
 import { Io5Call, Io5Mail } from 'vue-icons-plus/io5';
+import { Link } from '@inertiajs/vue3';
 
 // const images = [heroImg1, heroImg2, heroImg3];
 
@@ -50,7 +52,6 @@ const keyFeatures = [
     img: heroImg1
   }
 ];
-
 const signatureProjects = [
   {
     image: divineGreen,
@@ -60,7 +61,7 @@ const signatureProjects = [
   {
     image: skyLinkHeight,
     title: "Sky Link Height",
-    link: "/sky-link-height"
+    link: "/sky-link-heights"
   },
   {
     image: shivashree,
@@ -68,7 +69,6 @@ const signatureProjects = [
     link: "/shivashree"
   }
 ];
-
 const completedProjects = [
   {
     image: horoGauri,
@@ -81,7 +81,6 @@ const completedProjects = [
     link: "/pb-arcade"
   }
 ];
-
 const directors = [
   {
     img: Kalyan,
@@ -120,6 +119,7 @@ const carouselConfig = {
   autoplay: 3000,
 }
 
+// SEO
 const pageTitle = "Home | Sundaram Developers";
 const pageDescription = "Explore affordable and spacious flats in Jorhat with modern amenities. Find your perfect flat in Jorhat today with flexible pricing and great locations.";
 
@@ -131,6 +131,7 @@ useHead({
     { property: 'og:title', content: pageTitle },
     { property: 'og:description', content: pageDescription },
     { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.sundaramdevelopers.in/'}
   ],
 });
 
@@ -144,7 +145,11 @@ useHead({
       <Carousel v-bind="carouselConfig" class="w-full h-full">
         <Slide v-for="image in imagesSm" :key="image">
           <div class="w-full h-[70vh] relative">
-            <img :src="image" alt="Hero Slide" class="w-full h-full object-cover object-center brightness-40" />
+            <img 
+            :src="image" 
+            alt="Hero Slide" 
+            class="w-full h-full object-cover object-center brightness-40" 
+            loading="eager" />
           </div>
         </Slide>
       </Carousel>
@@ -201,7 +206,7 @@ useHead({
       <h2 class="text-center">About Us</h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
         <div style="position: relative; width: 100%; max-width: 560px; aspect-ratio: 16/9; overflow: hidden;">
-          <iframe src="https://www.youtube.com/embed/EEIYufLHfso?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=EEIYufLHfso&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;rel=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="true" title="Video" style="width:100%; height:100%; border:0; display:block; object-fit:cover; pointer-events: none; cursor: default;"> </iframe>
+          <iframe src="https://www.youtube.com/embed/EEIYufLHfso?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=EEIYufLHfso&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;rel=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="true" title="Video" style="width:100%; height:100%; border:0; display:block; object-fit:cover; pointer-events: none; cursor: default;" loading="lazy"> </iframe>
         </div>
 
 
@@ -221,7 +226,10 @@ useHead({
       <div class="space-y-6">
         <div v-for="director in directors" class="grid lg:grid-cols-2" :key="director.name">
           <div class="flex justify-center">
-            <img :src="director.img" :alt="director.name"/>
+            <img 
+            :src="director.img" 
+            :alt="director.name" 
+            loading="lazy" />
           </div>
           <div class="flex justify-center flex-col text-center gap-3">
             <h2 class="text-3xl font-medium border-e-4 border-black py-2 border-b-1">{{ director.name }}</h2>
@@ -254,11 +262,11 @@ useHead({
           </div>
         </div>
         <div class="flex justify-center ">
-          <a href="/contact"
+          <Link href="/contact"
             class="flex gap-2 bg-[#ff4c4c] text-white font-semibold items-center rounded px-5 py-2 shadow cursor-pointer hover:shadow-lg hover:scale-95 transition duration-150">
             <span>Contact Us</span>
             <Io5Call class="w-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

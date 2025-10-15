@@ -1,8 +1,8 @@
 <template>
     <div class="text-sky-100 py-3">
-        <h4 class="text-5xl font-bold text-center">
+        <h3 class="text-5xl font-bold text-center">
             {{ displayValue }} {{ postfix }}
-        </h4>
+        </h3>
         <p class="text-center text-xl">{{ props.label }}</p>
     </div>
   </template>

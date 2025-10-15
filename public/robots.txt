@@ -1,2 +1,10 @@
 User-agent: *
-Disallow:
+Disallow: /admin/
+disallow: /*.pdf
+disallow: /*.jpg
+disallow: /*.png
+disallow: /*.webp
+disallow: /*.mp3
+Allow: /
+
+sitemap: https://www.sundaramdevelopers.in/sitemap.xml

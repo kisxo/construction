@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css';
 import AppLayout from '@/layouts/AppLayout.vue';
-import { Carousel, Slide } from 'vue3-carousel';
+// import { Carousel, Slide } from 'vue3-carousel';
 // import heroImg1 from "../../images/hero-1.jpeg";
 // import heroImg2 from "../../images/hero-2.jpeg";
 // import heroImg3 from "../../images/hero-3.jpeg";
-import img1Sm from "../../images/hero-sm.webp";
-import img2Sm from "../../images/hero-2sm.webp";
-import img3Sm from "../../images/hero-3sm.webp";
+// import img1Sm from "../../images/hero-sm.webp";
+// import img2Sm from "../../images/hero-2sm.webp";
+// import img3Sm from "../../images/hero-3sm.webp";
 import Footer from '@/components/Footer.vue';
 import { useHead } from '@vueuse/head';
 
@@ -27,15 +27,15 @@ function handleSubmit() {
   alert("Thank you! Your message has been sent.");
 }
 
-const imagesSm = [img1Sm, img2Sm, img3Sm];
+// const imagesSm = [img1Sm, img2Sm, img3Sm];
 
-const carouselConfig = {
-  itemsToShow: 1,
-  wrapAround: true,
-  autoplay: 3000,
-}
+// const carouselConfig = {
+//   itemsToShow: 1,
+//   wrapAround: true,
+//   autoplay: 3000,
+// }
 
-const pageTitle = "Home | Sundaram Developers";
+const pageTitle = "Contact | Sundaram Developers";
 const pageDescription = "Explore affordable and spacious flats in Jorhat with modern amenities. Find your perfect flat in Jorhat today with flexible pricing and great locations.";
 
 useHead({
@@ -46,6 +46,7 @@ useHead({
     { property: 'og:title', content: pageTitle },
     { property: 'og:description', content: pageDescription },
     { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.sundaramdevelopers.in/contact'}
   ],
 });
 
@@ -57,7 +58,7 @@ useHead({
     <section class="grid md:grid-cols-2 gap-12 bg-gray-50 py-16 px-6">
     <!-- Contact Form -->
     <div>
-      <h2 class="text-3xl font-bold text-gray-800 mb-6">Contact Us</h2>
+      <h1 class="text-3xl font-bold text-gray-800 mb-6">Contact Us</h1>
 
       <form
         @submit.prevent="handleSubmit"

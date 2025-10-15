@@ -8,6 +8,10 @@ import img_1 from "../../images/pb_arcade/img_1.png";
 import img_2 from "../../images/pb_arcade/img_2.png";
 import { Io5Train, Io5Airplane, Io5Bus, Io5School, Io5Basket, } from 'vue-icons-plus/io5';
 import { Fa6Hospital } from 'vue-icons-plus/fa6';
+import { useHead } from '@vueuse/head';
+import { Link } from '@inertiajs/vue3';
+import MapSearch from "../../images/pin.gif"
+import ExternalLoader from '@/components/ExternalLoader.vue';
 
 const gallery = [main_img, img_1, img_2]
 const locationBenefits = [
@@ -162,7 +166,6 @@ const specifications1 = [
         desc: "All rooms with P.O.P. & Primer finished inside & cement paint outside."
     },
 ];
-
 const specifications2 = [
     {
         title: "Water",
@@ -184,6 +187,22 @@ const specifications2 = [
         desc: " 6 passengers lift."
     },
 ];
+
+// SEO
+const pageTitle = "P.B Arcade | Sundaram Developers";
+const pageDescription = "'P.B. ARCADE' is a modern commercial project nestled in the bustling heart of Jorhat, near Deepali Medical, AT Road. Designed for modern businesses and retail visionaries, this structured commercial enclave brings together functionality, visibility, and strategic connectivity. With thoughtfully planned shops across multiple floors and essential modern infrastructure, it offers a dynamic business environment complete with power backup, secure access, and shared amenities. Positioned minutes from key transit hubs and healthcare centers, P.B. Arcade is more than just a commercial address — it’s a growth destination built for the entrepreneurs of tomorrow. ";
+
+useHead({
+  title: pageTitle,
+  meta: [
+    { name: 'description', content: pageDescription },
+    { name: 'keywords', content: 'pb arcade, complex, flats near ISBT Jorhat, flats near Jorhat Vishal Megamart, flats near jorhat railway, apartments, Sundaram Developers, residential, Assam, real estate, affordable, flats, premium, construction, Jorhat, property, developers' },
+    { property: 'og:title', content: pageTitle },
+    { property: 'og:description', content: pageDescription },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.sundaramdevelopers.in/pb-arcade'}
+  ],
+});
 
 </script>
 
@@ -212,7 +231,7 @@ const specifications2 = [
         <section class="bg-[#0065f8] py-16 px-4">
             <h2 class="text-5xl text-white text-center">Welcome to P.B. Arcade</h2>
             <div class="container mx-auto grid md:grid-cols-2 gap-6 my-8">
-                <div class="w-full h-[320px] rounded-lg overflow-hidden shadow-lg">
+                <!-- <div class="w-full h-[320px] rounded-lg overflow-hidden shadow-lg">
                     <div class="w-full h-[320px] rounded-lg overflow-hidden shadow-lg">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3794.4305352067395!2d94.209972!3d26.760419!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3746c3fe625e6147%3A0x5fbdd8d4904833dd!2sP%20B%20Arcade!5e1!3m2!1sen!2sin!4v1760430939156!5m2!1sen!2sin"
@@ -220,7 +239,10 @@ const specifications2 = [
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
 
-                </div>
+                </div> -->
+                <ExternalLoader 
+                    iframe-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3794.4305352067395!2d94.209972!3d26.760419!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3746c3fe625e6147%3A0x5fbdd8d4904833dd!2sP%20B%20Arcade!5e1!3m2!1sen!2sin!4v1760430939156!5m2!1sen!2sin" 
+                    :placeholder="MapSearch" />
                 <div class="flex flex-col justify-center gap-6 leading-8 text-white text-lg">
                     <p>
                         <span class="font-semibold italic pe-1">'P.B. ARCADE' </span> is a modern commercial project nestled in the bustling heart of Jorhat,
@@ -300,7 +322,8 @@ const specifications2 = [
                 <div class="grid md:grid-cols-2 gap-4 md:gap-6 py-8">
                     <div v-for="img in gallery" :key="img">
                         <img :src="img"
-                            class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg" />
+                            class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg"
+                            loading="lazy" />
                     </div>
                 </div>
             </div>
@@ -309,11 +332,11 @@ const specifications2 = [
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-3xl font-bold text-center pt-12 kanit-medium">Contact Us For Booking</h2>
                 <div class="flex justify-center py-6">
-                <a href="/contact"
+                <Link href="/contact"
                     class="flex gap-2 bg-[#ff4c4c] text-white font-semibold items-center rounded px-5 py-2 shadow cursor-pointer hover:shadow-lg hover:scale-95 transition duration-150">
                     <span>Contact Us</span>
                     <Io5Call class="w-4" />
-                </a>
+                </Link>
                 </div>
             </div>
         </section>

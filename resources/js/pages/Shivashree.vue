@@ -23,6 +23,7 @@ import { IoBarbell } from 'vue-icons-plus/io';
 import { BsCameraReelsFill } from 'vue-icons-plus/bs';
 import { IpSurveillanceCameras, IpWater } from 'vue-icons-plus/ip';
 import { HiMiniLightBulb } from 'vue-icons-plus/hi2';
+import { useHead } from '@vueuse/head';
 
 const gallery = [floor_plan_1, parking, planing_1, planing_2, planing_3, planing_4, img_1, img_2, img_3, img_4, img_5, img_6, img_7];
 
@@ -58,7 +59,6 @@ const locationBenefits = [
         desc: "Style Baazar, Tezpur",
     },
 ];
-
 const lifestyleAmenities = [
     {
         title: "Community Features",
@@ -272,6 +272,22 @@ const specifications = [
 ];
 
 
+// SEO
+const pageTitle = "Shivashree | Sundaram Developers";
+const pageDescription = "Experience modern, sustainable living in Tezpur the scenic city on the north bank of the Brahmaputrav, well-connected by air, rail, and road. Offering thoughtfully designed 1BHK, 2BHK, and 3BHK apartments with the latest architectural style, built under expert supervision. A perfect blend of comfort, elegance, and security — a dream home you’ll be proud to own. ";
+
+useHead({
+  title: pageTitle,
+  meta: [
+    { name: 'description', content: pageDescription },
+    { name: 'keywords', content: 'shivashree, flats near ASTC Tezpur, flats near tezpur railway, apartments, Sundaram Developers, residential, Assam, real estate, affordable, flats, premium, construction, tezpur, property, developers' },
+    { property: 'og:title', content: pageTitle },
+    { property: 'og:description', content: pageDescription },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.sundaramdevelopers.in/shibashree'}
+  ],
+});
+
 </script>
 
 <template>
@@ -287,7 +303,7 @@ const specifications = [
                     <h1 class="text-6xl">Shivashree Apartments</h1>
                     <p class="flex items-center gap-2  pt-2 kanit-medium">
                         <MapPin />
-                        Tzpur, Assam
+                        Tezpur, Assam
                     </p>
                 </div>
             </div>
@@ -403,7 +419,8 @@ const specifications = [
                 <div class="grid md:grid-cols-2 gap-4 md:gap-6 py-8">
                     <div v-for="img in gallery" :key="img">
                         <img :src="img"
-                            class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg" />
+                            class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg"
+                            loading="lazy" />
                     </div>
                 </div>
             </div>

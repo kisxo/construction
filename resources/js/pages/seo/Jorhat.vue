@@ -4,6 +4,7 @@ import image3 from "../../../images/hero-3.jpeg";
 import AppLayout from '@/layouts/AppLayout.vue';
 import Footer from '@/components/Footer.vue';
 import { Building, Leaf, Mail, Phone, Shield, Wifi } from 'lucide-vue-next';
+import { Link } from '@inertiajs/vue3';
 
 const pageTitle = "Affordable Flats for Sale in Jorhat - Your Dream Home Awaits | Sundaram Developers";
 const pageDescription = "Explore affordable and spacious flats in Jorhat with modern amenities. Find your perfect flat in Jorhat today with flexible pricing and great locations.";
@@ -40,9 +41,9 @@ useHead({
                 <p class="max-w-4xl mx-auto text-md text-center md:text-xl text-zinc-100">
                     Discover cozy and spacious flats in the heart of Jorhat with modern amenities and flexible pricing.
                 </p>
-                <a href="/contact" class="mt-10 px-8 py-3 bg-teal-700 hover:bg-teal-800 shadow text-white rounded-lg hover:scale-95 transition">
+                <Link href="/contact" class="mt-10 px-8 py-3 bg-teal-700 hover:bg-teal-800 shadow text-white rounded-lg hover:scale-95 transition">
                     Contact Us
-                </a>
+                </Link>
             </div>
         </div>
     </section>

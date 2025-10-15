@@ -25,6 +25,9 @@ import { IpBatteryCharge, IpSurveillanceCameras, IpWater } from 'vue-icons-plus/
 import { RiEarthquakeFill } from 'vue-icons-plus/ri';
 import { HiFire } from 'vue-icons-plus/hi';
 import { MapPin } from 'lucide-vue-next';
+import MapSearch from "../../images/pin.gif"
+import MapLoader from '@/components/ExternalLoader.vue';
+import { Link } from '@inertiajs/vue3';
 
 // const images = [heroImg1, heroImg2, heroImg3];
 
@@ -64,7 +67,6 @@ const locationBenefits = [
     desc: "Guwahati City Center",
   },
 ];
-
 const featuresAmenities = [
   {
     icon: MdGroupWork,
@@ -161,7 +163,6 @@ const featuresAmenities = [
     ]
   },
 ];
-
 const premiumSpecifications = [
   {
     title: "Flooring",
@@ -290,7 +291,6 @@ const premiumSpecifications = [
     ]
   }
 ];
-
 const flatSizes = [
   {
     type: "1 BHK",
@@ -325,7 +325,6 @@ const flatSizes = [
     size: "1270.00 sq. ft.",
   },
 ];
-
 // const locationAdvantages = [
 //   { 
 //     label: "Sai Vikash Vidya Niketan",
@@ -350,7 +349,6 @@ const flatSizes = [
 //     desc: "19 km (30 min Drive)"
 //   }
 // ];
-
 const specifications = [
   {
     title: "Building",
@@ -394,17 +392,18 @@ const carouselConfig = {
   autoplay: 3000,
 }
 
-const pageTitle = "Home | Sundaram Developers";
-const pageDescription = "Explore affordable and spacious flats in Jorhat with modern amenities. Find your perfect flat in Jorhat today with flexible pricing and great locations.";
+const pageTitle = "Divine Green | Sundaram Developers";
+const pageDescription = "The name 'Divine Green' signifies priority and flawlessness, rightfully signifying the commitment that the Divine Developers has to ensure a modern habitat for Guwahati.";
 
 useHead({
   title: pageTitle,
   meta: [
     { name: 'description', content: pageDescription },
-    { name: 'keywords', content: 'flat in Jorhat, Jorhat apartments, Sundaram Developers, residential flats Assam, buy flat Jorhat, Jorhat real estate, new flats Jorhat, affordable flats Jorhat, premium apartments Jorhat, Jorhat property developers' },
+    { name: 'keywords', content: 'devine green, divine green, flats near ISBT Guwahati, flats near Ayursundra Superspecialty Hospital, flats near Delhi Public School, apartments, Sundaram Developers, residential, Assam, real estate, affordable, flats, premium, construction, Guwahati, ahom gaon, katapara, property, developers' },
     { property: 'og:title', content: pageTitle },
     { property: 'og:description', content: pageDescription },
     { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.sundaramdevelopers.in/divine-green'}
   ],
 });
 
@@ -418,7 +417,10 @@ useHead({
       <Carousel v-bind="carouselConfig" class="w-full h-full">
         <Slide v-for="image in imagesSm" :key="image">
           <div class="w-full h-[65vh] relative">
-            <img :src="image" alt="Hero Slide" class="w-full h-full object-cover object-center brightness-40" />
+            <img 
+              :src="image" alt="divine green, sundaram developers" 
+              class="w-full h-full object-cover object-center brightness-40"
+              loading="lazy"  />
           </div>
         </Slide>
       </Carousel>
@@ -439,9 +441,12 @@ useHead({
     <section class="bg-teal-600 py-16 px-4">
       <h2 class="text-3xl font-bold text-white text-center kanit-semibold">Welcome to Divine Green</h2>
       <div class="container mx-auto grid md:grid-cols-2 gap-8 my-8">
-        <div class="w-full h-[320px] rounded-lg overflow-hidden shadow-lg">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.7676223683775!2d91.72310484578604!3d26.106503218366043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5d57ce4e1d6b%3A0x3448edcd871820a3!2sDivine%20Green%20Apartment!5e0!3m2!1sen!2sin!4v1760332643867!5m2!1sen!2sin" class="w-full h-full" style="border:0;" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <!-- <div class="w-full h-[320px] rounded-lg overflow-hidden shadow-lg">
+          <iframe src="" class="w-full h-full" style="border:0;" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div> -->
+        <MapLoader 
+          iframe-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.7676223683775!2d91.72310484578604!3d26.106503218366043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5d57ce4e1d6b%3A0x3448edcd871820a3!2sDivine%20Green%20Apartment!5e0!3m2!1sen!2sin!4v1760332643867!5m2!1sen!2sin" 
+          :placeholder="MapSearch" />
         <div class="flex flex-col justify-center gap-6 leading-8 text-white text-lg">
           <p>The name <span class="font-semibold italic">'Divine Green'</span> signifies priority and flawlessness, rightfully signifying the commitment that the Divine Developers has to ensure a modern habitat for Guwahati.</p>
           <p>Divine Green was conceived with the idea of creating a home that was perfect in all respects. What you need is compact living space, where room sizes are spacious and where life can be comfortable and convenient. The project is located in the fast-developing residential hub of Guwahati, making it a sought-after place to reside.</p>
@@ -518,7 +523,10 @@ useHead({
       <div class="container mx-auto mt-6">
         <div class="grid md:grid-cols-2 gap-4 lg:gap-14 py-8">
           <div>
-            <img :src="img1Sm" class="h-full max-h-[370px] aspect-auto w-full object-cover rounded shadow hover:shadow-xl"/>
+            <img 
+              :src="img1Sm" 
+              class="h-full max-h-[370px] aspect-auto w-full object-cover rounded shadow hover:shadow-xl"
+              loading="lazy" />
           </div>
           <div>
             <table class="table w-full shadow">
@@ -544,7 +552,11 @@ useHead({
       <div class="container mx-auto mt-6">
         <div class="grid md:grid-cols-2 gap-4 md:gap-6 py-8">
           <div v-for="img in gallery" :key="img">
-            <img :src="img" class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg" />
+            <img 
+            :src="img" 
+            class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg" 
+            alt="divine green, sundaram developers" 
+            loading="lazy" />
           </div>
         </div>
       </div>
@@ -553,11 +565,11 @@ useHead({
       <div class="max-w-7xl mx-auto">
         <h2 class="text-3xl font-bold text-center pt-12 kanit-medium">Contact Us For Booking</h2>
         <div class="flex justify-center py-6">
-          <a href="/contact"
+          <Link href="/contact"
             class="flex gap-2 bg-[#ff4c4c] text-white font-semibold items-center rounded px-5 py-2 shadow cursor-pointer hover:shadow-lg hover:scale-95 transition duration-150">
             <span>Contact Us</span>
             <Io5Call class="w-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

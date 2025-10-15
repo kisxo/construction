@@ -11,6 +11,7 @@
           :src="image"
           :alt="title"
           :title="title"
+          loading="lazy" 
         />
         <div class="reka-card-title bg-black/50 text-center">
           <h3>{{ title }}</h3>
