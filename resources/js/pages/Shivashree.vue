@@ -1,20 +1,16 @@
 <script setup lang="ts">
 import Footer from '@/components/Footer.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
-import shs_img1 from '../../images/shivashree/img_3.webp';
+import shs_img1 from '../../images/shivashree/shivashree_956x768.avif';
 import floor_plan_1 from "../../images/shivashree/floor_plan_1.webp";
-import parking from "../../images/shivashree/parking.jpeg";
-import planing_1 from "../../images/shivashree/planing_1.jpeg";
-import planing_2 from "../../images/shivashree/planing_2.jpeg";
-import planing_3 from "../../images/shivashree/planing_3.jpeg";
-import planing_4 from "../../images/shivashree/planing_4.jpeg";
-import img_1 from "../../images/shivashree/img_1.jpeg";
-import img_2 from "../../images/shivashree/img_2.webp";
-import img_3 from "../../images/shivashree/img_3.webp";
-import img_4 from "../../images/shivashree/img_4.webp";
-import img_5 from "../../images/shivashree/img_5.webp";
-import img_6 from "../../images/shivashree/img_6.webp";
-import img_7 from "../../images/shivashree/img_7.webp";
+import parking from "../../images/shivashree/parking.avif";
+import planing_1 from "../../images/shivashree/plan_1.avif";
+import planing_2 from "../../images/shivashree/plan_2.avif";
+import planing_3 from "../../images/shivashree/plan_3.avif";
+import img_1 from "../../images/shivashree/shivashree_1.avif";
+import img_2 from "../../images/shivashree/shivashree_2.avif";
+import img_3 from "../../images/shivashree/shivashree_3.avif";
+import img_4 from "../../images/shivashree/shivashree_4.avif";
 import { MapPin } from 'lucide-vue-next';
 import { Io5Train, Io5Airplane, Io5Bus, Io5School, Io5Basket, Io5LeafOutline, Io5PhonePortrait, Io5BuildSharp, } from 'vue-icons-plus/io5';
 import { Fa6Hospital, Fa6Lightbulb, Fa6Lock, Fa6PersonRunning, Fa6Recycle, Fa6UmbrellaBeach } from 'vue-icons-plus/fa6';
@@ -25,7 +21,7 @@ import { IpSurveillanceCameras, IpWater } from 'vue-icons-plus/ip';
 import { HiMiniLightBulb } from 'vue-icons-plus/hi2';
 import { useHead } from '@vueuse/head';
 
-const gallery = [floor_plan_1, parking, planing_1, planing_2, planing_3, planing_4, img_1, img_2, img_3, img_4, img_5, img_6, img_7];
+const gallery = [floor_plan_1, parking, planing_1, planing_2, planing_3, img_1, img_2, img_3, img_4];
 
 const locationBenefits = [
     {

@@ -5,12 +5,10 @@ import { Carousel, Slide } from 'vue3-carousel';
 // import heroImg1 from "../../images/hero-1.jpeg";
 // import heroImg2 from "../../images/hero-2.jpeg";
 // import heroImg3 from "../../images/hero-3.jpeg";
-import img1Sm from "../../images/sky-link-land.webp";
-import img2Sm from "../../images/sky-link-port.webp";
-import img3 from "../../images/divine-green.jpg";
-import img1 from "../../images/SitePlan.jpg";
-import img2 from "../../images/FloorPlan.jpg";
-import img4 from "../../images/divine-green-2.jpg";
+import skyLink1 from "../../images/sky_link_heights/sky-link-heights-1-sm.avif";
+import skyLink2 from "../../images/sky_link_heights/sky-link-heights-3-sm.avif";
+import skyLink3 from "../../images/sky_link_heights/sky-link-heights-4.avif";
+import skyLink4 from "../../images/sky_link_heights/sky-link-heights-2.avif"
 import Footer from '@/components/Footer.vue';
 import { useHead } from '@vueuse/head';
 import { Io5Airplane, Io5Basket, Io5Bus, Io5School, Io5Train } from 'vue-icons-plus/io5';
@@ -23,11 +21,9 @@ import { MapPin } from 'lucide-vue-next';
 import { HiMiniLightBulb } from 'vue-icons-plus/hi2';
 import { IoBarbell } from 'vue-icons-plus/io';
 
-// const images = [heroImg1, heroImg2, heroImg3];
+const imagesSm = [skyLink1, skyLink2, skyLink3];
 
-const imagesSm = [img1Sm, img2Sm];
-
-const gallery = [img1, img2, img3, img4];
+const gallery = [skyLink1, skyLink2, skyLink3, skyLink4];
 
 const locationBenefits = [
   {
@@ -436,7 +432,7 @@ useHead({
         <div class="grid md:grid-cols-2 gap-4 lg:gap-14 py-8">
           <div>
             <img 
-            :src="img1Sm" 
+            :src="skyLink2" 
             class="h-full max-h-[370px] aspect-auto w-full object-cover rounded shadow hover:shadow-xl"
             loading="lazy"/>
           </div>
@@ -466,7 +462,7 @@ useHead({
           <div v-for="img in gallery" :key="img">
             <img 
             :src="img" 
-            class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg" 
+            class="aspect-[6/5] w-full h-auto rounded shadow object-cover hover:shadow-lg" 
             loading="lazy"/>
           </div>
         </div>

@@ -5,13 +5,11 @@ import { Carousel, Slide } from 'vue3-carousel';
 // import heroImg1 from "../../images/hero-1.jpeg";
 // import heroImg2 from "../../images/hero-2.jpeg";
 // import heroImg3 from "../../images/hero-3.jpeg";
-import img1Sm from "../../images/hero-sm.webp";
-import img2Sm from "../../images/hero-2sm.webp";
-import img3Sm from "../../images/hero-3sm.webp";
-import img3 from "../../images/divine-green.jpg";
-import img1 from "../../images/SitePlan.jpg";
-import img2 from "../../images/FloorPlan.jpg";
-import img4 from "../../images/divine-green-2.jpg";
+import divine1 from "../../images/divine_green/divine-green_1.avif";
+import divine2 from "../../images/divine_green/divine-green-3.avif";
+import divine1sm from "../../images/divine_green/divine-green-640x480.avif";
+import sitePlan from "../../images/divine_green/SitePlan.avif";
+import floorPlan from "../../images/divine_green/FloorPlan.avif";
 import Footer from '@/components/Footer.vue';
 import { useHead } from '@vueuse/head';
 import { Io5Airplane, Io5Barbell, Io5Basket, Io5Bus, Io5School, Io5Train } from 'vue-icons-plus/io5';
@@ -31,9 +29,9 @@ import { Link } from '@inertiajs/vue3';
 
 // const images = [heroImg1, heroImg2, heroImg3];
 
-const imagesSm = [img1Sm, img2Sm, img3Sm];
+const imagesSm = [divine1sm, divine2];
 
-const gallery = [img1, img2, img3, img4];
+const gallery = [sitePlan, floorPlan, divine1, divine2];
 
 const locationBenefits = [
   {
@@ -524,7 +522,7 @@ useHead({
         <div class="grid md:grid-cols-2 gap-4 lg:gap-14 py-8">
           <div>
             <img 
-              :src="img1Sm" 
+              :src="divine1sm" 
               class="h-full max-h-[370px] aspect-auto w-full object-cover rounded shadow hover:shadow-xl"
               loading="lazy" />
           </div>

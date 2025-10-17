@@ -5,8 +5,10 @@ import { Carousel, Slide } from 'vue3-carousel';
 // import heroImg1 from "../../images/hero-1.jpeg";
 // import heroImg2 from "../../images/hero-2.jpeg";
 // import heroImg3 from "../../images/hero-3.jpeg";
-import img2Sm from "../../images/HoroGauri.webp";
-import img3Sm from "../../images/hero-3sm.webp";
+import hg1 from "../../images/horo_gauri/HoroGauri_1.avif";
+import hg1sm from "../../images/horo_gauri/HoroGauri_1_540x.avif";
+import hg2 from "../../images/horo_gauri/HoroGauri_2.avif";
+import hg3 from "../../images/horo_gauri/HoroGauri_3.avif"
 import Footer from '@/components/Footer.vue';
 import { useHead } from '@vueuse/head';
 import { Io5Airplane, Io5Basket, Io5Bus, Io5Call, Io5School, Io5Train, Io5Water } from 'vue-icons-plus/io5';
@@ -22,9 +24,9 @@ import MapSearch from "../../images/pin.gif";
 
 // const images = [heroImg1, heroImg2, heroImg3];
 
-const imagesSm = [img2Sm, img3Sm];
+const imagesSm = [hg1sm, hg2, hg3];
 
-const gallery = [img2Sm, img3Sm];
+const gallery = [hg1, hg2, hg3];
 
 const locationBenefits = [
   {
@@ -482,7 +484,7 @@ useHead({
       <div class="container mx-auto mt-6">
         <div class="grid md:grid-cols-2 gap-4 lg:gap-14 py-8">
           <div>
-            <img :src="img3Sm" class="h-full max-h-[370px] aspect-auto w-full object-cover rounded shadow hover:shadow-xl" alt="divine green, sundaram developers"/>
+            <img :src="hg1sm" class="h-full max-h-[370px] aspect-auto w-full object-cover rounded shadow hover:shadow-xl" alt="divine green, sundaram developers"/>
           </div>
           <div>
             <table class="table w-full shadow">

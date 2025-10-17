@@ -2,15 +2,11 @@
 import 'vue3-carousel/dist/carousel.css';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { Carousel, Slide } from 'vue3-carousel';
-import heroImg1 from "../../images/hero-1.jpeg";
-import img2Sm from "../../images/hero-2sm.webp";
-import img3Sm from "../../images/hero-3sm.webp";
-import divineGreen from "../../images/divine-green-640x480.jpg";
-// import skyLinkHeight from "../../images/sky-link-land.webp";
-import skyLinkHeight from "../../images/sky-link-land-720x405.webp";
-import shivashree from "../../images/hero-sm.webp";
-import horoGauri from "../../images/HoroGauri-640x480.webp";
-import PBArcade from "../../images/PBArcade-640x435.webp";
+import divineGreen from "../../images/divine_green/divine-green-640x480.avif";
+import skyLinkHeight from "../../images/sky_link_heights/sky-link-heights-1-sm.avif";
+import shivashree from "../../images/shivashree/shivashree_956x768.avif";
+import horoGauri from "../../images/horo_gauri/HoroGauri_1_540x.avif";
+import PBArcade from "../../images/pb_arcade/main_img_sm.avif";
 import Kalyan from "../../images/Kalyan.avif";
 import Saurabh from "../../images/Saurabh.avif";
 // import clip1 from "../../images/clip1.mp4";
@@ -24,32 +20,32 @@ import { Link } from '@inertiajs/vue3';
 
 // const images = [heroImg1, heroImg2, heroImg3];
 
-const imagesSm = [shivashree, img2Sm, img3Sm];
+const imagesSm = [horoGauri, PBArcade, divineGreen, shivashree, skyLinkHeight];
 
 const keyFeatures = [
   {
     icon: Fa6Wifi,
     title: 'Smart Home Technology',
     desc: 'Connected living made simple',
-    img: heroImg1
+    // img: heroImg1
   },
   {
     icon: Fa6Leaf,
     title: 'Eco-Friendly Design',
     desc: 'Sustainable and green Spaces',
-    img: heroImg1
+    // img: heroImg1
   },
   {
     icon: Fa6Hotel,
     title: 'Eco-Friendly Design',
     desc: '24/7 Security',
-    img: heroImg1
+    // img: heroImg1
   },
   {
     icon: Fa6Shield,
     title: '24/7 Security',
     desc: 'World-class facilities',
-    img: heroImg1
+    // img: heroImg1
   }
 ];
 const signatureProjects = [
