@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css';
-import AppLayout from '@/layouts/AppLayout.vue';
+const AppLayout = defineAsyncComponent(() => import('@/layouts/AppLayout.vue'));
 import { Carousel, Slide } from 'vue3-carousel';
 // import heroImg1 from "../../images/hero-1.jpeg";
 // import heroImg2 from "../../images/hero-2.jpeg";
@@ -10,7 +10,7 @@ import divine2 from "../../images/divine_green/divine-green-3.avif";
 import divine1sm from "../../images/divine_green/divine-green-640x480.avif";
 import sitePlan from "../../images/divine_green/SitePlan.avif";
 import floorPlan from "../../images/divine_green/FloorPlan.avif";
-import Footer from '@/components/Footer.vue';
+const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'));
 import { useHead } from '@vueuse/head';
 import { Io5Airplane, Io5Barbell, Io5Basket, Io5Bus, Io5School, Io5Train } from 'vue-icons-plus/io5';
 // import { Building2 } from 'lucide-vue-next';
@@ -26,6 +26,7 @@ import { MapPin } from 'lucide-vue-next';
 import MapSearch from "../../images/pin.gif"
 import MapLoader from '@/components/ExternalLoader.vue';
 import { Link } from '@inertiajs/vue3';
+import { defineAsyncComponent } from 'vue';
 
 // const images = [heroImg1, heroImg2, heroImg3];
 

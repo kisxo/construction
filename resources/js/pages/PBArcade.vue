@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-import Footer from '@/components/Footer.vue';
-import AppLayout from '@/layouts/AppLayout.vue';
+const Footer = defineAsyncComponent(()=> import('@/components/Footer.vue'));
+const AppLayout = defineAsyncComponent(()=> import('@/layouts/AppLayout.vue'));
 import main_img from "../../images/pb_arcade/main_img.jpeg";
 import { MapPin } from 'lucide-vue-next';
 import img_1 from "../../images/pb_arcade/img_1.png";
@@ -11,7 +11,8 @@ import { Fa6Hospital } from 'vue-icons-plus/fa6';
 import { useHead } from '@vueuse/head';
 import { Link } from '@inertiajs/vue3';
 import MapSearch from "../../images/pin.gif"
-import ExternalLoader from '@/components/ExternalLoader.vue';
+import { defineAsyncComponent } from 'vue';
+const ExternalLoader = defineAsyncComponent(() => import('@/components/ExternalLoader.vue'));
 
 const gallery = [main_img, img_1, img_2]
 const locationBenefits = [

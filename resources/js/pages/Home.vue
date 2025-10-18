@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css';
-import AppLayout from '@/layouts/AppLayout.vue';
+// import AppLayout from '@/layouts/AppLayout.vue';
+const AppLayout = defineAsyncComponent(()=> import('@/layouts/AppLayout.vue'));
 import { Carousel, Slide } from 'vue3-carousel';
 import divineGreen from "../../images/divine_green/divine-green-640x480.avif";
 import skyLinkHeight from "../../images/sky_link_heights/sky-link-heights-1-sm.avif";
@@ -10,13 +11,17 @@ import PBArcade from "../../images/pb_arcade/main_img_sm.avif";
 import Kalyan from "../../images/Kalyan.avif";
 import Saurabh from "../../images/Saurabh.avif";
 // import clip1 from "../../images/clip1.mp4";
-import Footer from '@/components/Footer.vue';
+// import Footer from '@/components/Footer.vue';
+const Footer = defineAsyncComponent(()=> import('@/components/Footer.vue'))
 import { useHead } from '@vueuse/head';
 import { Fa6Hotel, Fa6Leaf, Fa6Shield, Fa6Wifi } from 'vue-icons-plus/fa6';
-import ImageCard from '@/components/ImageCard.vue';
-import CountingCard from '@/components/CountingCard.vue';
+// import ImageCard from '@/components/ImageCard.vue';
+const ImageCard = defineAsyncComponent(()=> import('@/components/ImageCard.vue'))
+// import CountingCard from '@/components/CountingCard.vue';
+const CountingCard = defineAsyncComponent(()=> import('@/components/CountingCard.vue'))
 import { Io5Call, Io5Mail } from 'vue-icons-plus/io5';
 import { Link } from '@inertiajs/vue3';
+import { defineAsyncComponent } from 'vue';
 
 // const images = [heroImg1, heroImg2, heroImg3];
 

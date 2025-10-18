@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css';
-import AppLayout from '@/layouts/AppLayout.vue';
+const AppLayout = defineAsyncComponent(()=> import('@/layouts/AppLayout.vue'));
 import { Carousel, Slide } from 'vue3-carousel';
 // import heroImg1 from "../../images/hero-1.jpeg";
 // import heroImg2 from "../../images/hero-2.jpeg";
@@ -9,7 +9,7 @@ import hg1 from "../../images/horo_gauri/HoroGauri_1.avif";
 import hg1sm from "../../images/horo_gauri/HoroGauri_1_540x.avif";
 import hg2 from "../../images/horo_gauri/HoroGauri_2.avif";
 import hg3 from "../../images/horo_gauri/HoroGauri_3.avif"
-import Footer from '@/components/Footer.vue';
+const Footer = defineAsyncComponent(()=> import('@/components/Footer.vue'));
 import { useHead } from '@vueuse/head';
 import { Io5Airplane, Io5Basket, Io5Bus, Io5Call, Io5School, Io5Train, Io5Water } from 'vue-icons-plus/io5';
 // import { Building2 } from 'lucide-vue-next';
@@ -19,13 +19,11 @@ import { IpSurveillanceCameras } from 'vue-icons-plus/ip';
 import { RiEarthquakeFill } from 'vue-icons-plus/ri';
 import { Link, MapPin } from 'lucide-vue-next';
 import { GiLift } from 'vue-icons-plus/gi';
-import ExternalLoader from '@/components/ExternalLoader.vue';
+const ExternalLoader = defineAsyncComponent(()=> import('@/components/ExternalLoader.vue'));
 import MapSearch from "../../images/pin.gif";
-
-// const images = [heroImg1, heroImg2, heroImg3];
+import { defineAsyncComponent } from 'vue';
 
 const imagesSm = [hg1sm, hg2, hg3];
-
 const gallery = [hg1, hg2, hg3];
 
 const locationBenefits = [
