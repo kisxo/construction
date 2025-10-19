@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Intervention\Image\Image;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +12,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+
+        // Optional: alias the facade manually if needed
+        $this->app->alias('Image', Image::class);
     }
 
     /**
