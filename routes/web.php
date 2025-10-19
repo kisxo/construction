@@ -46,9 +46,9 @@ Route::get('/flat-in-jorhat', function () {
     return Inertia::render('seo/Jorhat');
 })->name('seo.jorhat.flat');
 
-Route::get('dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 //media routes 
@@ -70,3 +70,4 @@ Route::get('/media-for', [MediaController::class, 'mediaFor']); // can be public
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
+require __DIR__.'/admin.php';
