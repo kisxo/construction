@@ -7,9 +7,7 @@
       <!-- Header -->
       <div class="flex justify-between items-center p-4 border-b">
         <h2 class="text-lg font-semibold">Media Library</h2>
-        <button @click="close" class="text-gray-500 hover:text-gray-700">
-          ✕
-        </button>
+        <button @click="close" class="text-gray-500 hover:text-gray-700">✕</button>
       </div>
 
       <!-- Toolbar -->
@@ -39,9 +37,9 @@
         <div
           v-for="item in filteredMedia"
           :key="item.id"
-          @click="select(item)"
+          @click="toggleSelect(item)"
           class="relative border rounded-lg overflow-hidden cursor-pointer group"
-          :class="{ 'ring-2 ring-blue-500': selectedItem?.id === item.id }"
+          :class="{ 'ring-2 ring-blue-500': selectedIds.includes(item.id) }"
         >
           <img
             v-if="item.type === 'image'"
@@ -58,11 +56,20 @@
           <div v-else class="flex items-center justify-center w-full h-32 bg-gray-100 text-gray-500 text-xs">
             {{ item.extension.toUpperCase() }}
           </div>
+
           <div
             class="absolute bottom-0 w-full bg-black/40 text-white text-xs p-1 truncate"
             :title="item.name"
           >
             {{ item.name }}
+          </div>
+
+          <!-- check icon -->
+          <div
+            v-if="selectedIds.includes(item.id)"
+            class="absolute top-1 right-1 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+          >
+            ✓
           </div>
         </div>
       </div>
@@ -77,10 +84,10 @@
         </button>
         <button
           class="px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white text-sm disabled:opacity-50"
-          :disabled="!selectedItem"
+          :disabled="selectedIds.length === 0"
           @click="confirmSelection"
         >
-          Select
+          Select ({{ selectedIds.length }})
         </button>
       </div>
     </div>
@@ -97,7 +104,7 @@ const emit = defineEmits(['selected', 'close'])
 const media = ref<any[]>([])
 const search = ref('')
 const filterType = ref('')
-const selectedItem = ref<any | null>(null)
+const selectedIds = ref<number[]>([])
 
 const isLoading = ref(false)
 
@@ -120,20 +127,20 @@ const filteredMedia = computed(() =>
   })
 )
 
-const select = (item: any) => {
-  selectedItem.value = item
+const toggleSelect = (item: any) => {
+  const index = selectedIds.value.indexOf(item.id)
+  if (index === -1) selectedIds.value.push(item.id)
+  else selectedIds.value.splice(index, 1)
 }
 
 const confirmSelection = () => {
-  if (selectedItem.value) emit('selected', selectedItem.value)
-  close()
+  if (selectedIds.value.length > 0) {
+    emit('selected', selectedIds.value)
+    close()
+  }
 }
 
 const close = () => emit('close')
 
 onMounted(fetchMedia)
 </script>
-
-<style scoped>
-/* Optional transitions */
-</style>

@@ -124,4 +124,58 @@ class MediaController extends Controller
 
         return response()->json(['message' => 'Deleted']);
     }
+
+    // Attach media to any model
+    public function attachMedia(Request $request)
+    {
+        $request->validate([
+            'media_uuid' => 'required|exists:media,uuid',
+            'model_type' => 'required|string',
+            'model_id' => 'required|integer',
+            'tag' => 'nullable|string',
+        ]);
+
+        $media = Media::where('uuid', $request->media_uuid)->firstOrFail();
+        $modelClass = $request->model_type;
+        $model = $modelClass::findOrFail($request->model_id);
+
+        $model->media()->syncWithoutDetaching([$media->id => ['tag' => $request->tag]]);
+
+        return response()->json(['message' => 'Media attached successfully']);
+    }
+
+    // Detach media
+    public function detachMedia(Request $request)
+    {
+        $request->validate([
+            'media_uuid' => 'required|exists:media,uuid',
+            'model_type' => 'required|string',
+            'model_id' => 'required|integer',
+        ]);
+
+        $media = Media::where('uuid', $request->media_uuid)->firstOrFail();
+        $modelClass = $request->model_type;
+        $model = $modelClass::findOrFail($request->model_id);
+
+        $model->media()->detach($media->id);
+
+        return response()->json(['message' => 'Media detached successfully']);
+    }
+
+    // Fetch media for a specific model + tag
+    public function mediaFor(Request $request)
+    {
+        $request->validate([
+            'model_type' => 'required|string',
+            'model_id' => 'required|integer',
+            'tag' => 'nullable|string',
+        ]);
+
+        $modelClass = $request->model_type;
+        $model = $modelClass::findOrFail($request->model_id);
+
+        $media = $request->tag ? $model->mediaByTag($request->tag) : $model->media()->get();
+
+        return response()->json($media);
+    }
 }

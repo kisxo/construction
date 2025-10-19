@@ -59,5 +59,14 @@ Route::post('/media', [MediaController::class, 'store']);
 Route::get('/media/{media}', [MediaController::class, 'show']);
 Route::delete('/media/{media}', [MediaController::class, 'destroy']);
 
+
+// Route::middleware(['auth:admin'])->group(function () {
+    Route::post('/media/attach', [MediaController::class, 'attachMedia']);
+    Route::post('/media/detach', [MediaController::class, 'detachMedia']);
+// });
+
+Route::get('/media-for', [MediaController::class, 'mediaFor']); // can be public
+
+
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
