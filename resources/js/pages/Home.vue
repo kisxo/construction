@@ -150,7 +150,7 @@ useHead({
             :src="image" 
             alt="Hero Slide" 
             class="w-full h-full object-cover object-center brightness-40" 
-            loading="lazy" />
+            />
           </div>
         </Slide>
       </Carousel>
