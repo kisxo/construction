@@ -10,6 +10,7 @@ import horoGauri from "../../images/horo_gauri/HoroGauri_1_540x.avif";
 import PBArcade from "../../images/pb_arcade/main_img_sm.avif";
 import Kalyan from "../../images/Kalyan.avif";
 import Saurabh from "../../images/Saurabh.avif";
+import video from "../../video/dfsdfasfaf.webm";
 // import clip1 from "../../images/clip1.mp4";
 // import Footer from '@/components/Footer.vue';
 const Footer = defineAsyncComponent(()=> import('@/components/Footer.vue'))
@@ -26,7 +27,6 @@ import { defineAsyncComponent } from 'vue';
 // const images = [heroImg1, heroImg2, heroImg3];
 
 const imagesSm = [horoGauri, PBArcade, divineGreen, shivashree, skyLinkHeight];
-
 const keyFeatures = [
   {
     icon: Fa6Wifi,
@@ -150,7 +150,7 @@ useHead({
             :src="image" 
             alt="Hero Slide" 
             class="w-full h-full object-cover object-center brightness-40" 
-            loading="eager" />
+            loading="lazy" />
           </div>
         </Slide>
       </Carousel>
@@ -206,9 +206,21 @@ useHead({
     <section class="p-8 lg:px-16 w-full pt-16">
       <h2 class="text-center">About Us</h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
-        <div style="position: relative; width: 100%; max-width: 560px; aspect-ratio: 16/9; overflow: hidden;">
+        <!-- <div style="position: relative; width: 100%; max-width: 560px; aspect-ratio: 16/9; overflow: hidden;">
           <iframe src="https://www.youtube.com/embed/EEIYufLHfso?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=EEIYufLHfso&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;rel=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="true" title="Video" style="width:100%; height:100%; border:0; display:block; object-fit:cover; pointer-events: none; cursor: default;" loading="lazy"> </iframe>
+        </div> -->
+        <div style="position:relative;width:100%;max-width:560px;aspect-ratio:16/14;overflow:hidden;">
+          <video
+            :src="video"            
+            controls
+            autoplay
+            muted
+            loop
+            playsinline
+            style="width:100%;height:100%;object-fit:cover;display:block;border:0;"
+          ></video>
         </div>
+
 
 
         <div class="flex flex-col justify-center gap-10">

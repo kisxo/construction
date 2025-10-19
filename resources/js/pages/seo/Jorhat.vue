@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '@vueuse/head';
-import image3 from "../../../images/hero-3.jpeg";
+import SkyLink from "../../../images/sky_link_heights/sky-link-heights-1-sm.avif";
+import Family from "../../../images/family.webp";
 import AppLayout from '@/layouts/AppLayout.vue';
 import Footer from '@/components/Footer.vue';
 import { Building, Leaf, Mail, Phone, Shield, Wifi } from 'lucide-vue-next';
@@ -33,7 +34,7 @@ useHead({
         <div class="relative group">
             <div class="p-6">
                 <div class="rounded-xl bg-zinc-950">
-                    <img :src="image3" alt="Modern apartment exterior" class=" rounded-xl w-full object-cover lg:aspect-[20/7] md:aspect-[9/4] aspect-[3/2] opacity-35 transition group-hover:opacity-25 group-hover:scale-[97%]" />
+                    <img :src="SkyLink" alt="Modern apartment exterior" class=" rounded-xl w-full object-cover lg:aspect-[20/7] md:aspect-[9/4] aspect-[3/2] opacity-35 transition group-hover:opacity-25 group-hover:scale-[97%]" />
                 </div>
             </div>
             <div class="absolute bottom-10 w-full flex flex-col items-center p-8 ">
@@ -41,62 +42,12 @@ useHead({
                 <p class="max-w-4xl mx-auto text-md text-center md:text-xl text-zinc-100">
                     Discover cozy and spacious flats in the heart of Jorhat with modern amenities and flexible pricing.
                 </p>
-                <Link href="/contact" class="mt-10 px-8 py-3 bg-teal-700 hover:bg-teal-800 shadow text-white rounded-lg hover:scale-95 transition">
+                <Link href="/contact" class="mt-10 px-8 py-3 font-semibold bg-orange-600 hover:bg-orange-700 shadow text-white rounded-lg hover:scale-95 transition">
                     Contact Us
                 </Link>
             </div>
         </div>
     </section>
-
-    <!-- <section class=" mb-16 ">
-      <div class="container mx-auto items-center">
-        <div>
-            <h2 class="text-3xl text-center font-semibold mb-12">Why Buy a Flat in Jorhat?</h2>
-            <ul class=" list-inside space-y-2 text-gray-700 text-lg text-center">
-                <li>Strategic location with excellent connectivity across Assam.</li>
-                <li>Growing real estate market with promising investment returns.</li>
-                <li>Close to quality schools, hospitals, and shopping centers.</li>
-                <li>Peaceful & green environment ideal for families and professionals.</li>
-            </ul>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- <section class="mb-16">
-      <div class="container mx-auto">
-        <h2 class="text-3xl font-semibold mb-6 text-center">Popular Areas for Flats in Jorhat</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Sonari" class="rounded mb-4 h-40 w-full object-cover" />
-            <h3 class="font-bold text-xl mb-2">Sonari</h3>
-            <p class="text-gray-600">
-                A vibrant locality known for its connectivity and community feel.
-            </p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Boiragimoth" class="rounded mb-4 h-40 w-full object-cover" />
-            <h3 class="font-bold text-xl mb-2">Boiragimoth</h3>
-            <p class="text-gray-600">
-                Known for peaceful residences with nearby markets and parks.
-            </p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-            <img src="https://images.unsplash.com/photo-1505692952046-65e6ad3a9bcd?auto=format&fit=crop&w=400&q=80" alt="Rupai" class="rounded mb-4 h-40 w-full object-cover" />
-            <h3 class="font-bold text-xl mb-2">Rupai</h3>
-            <p class="text-gray-600">
-                Emerging area with new housing projects and great connectivity.
-            </p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-            <img src="https://images.unsplash.com/photo-1461716902560-c81068a0a7b2?auto=format&fit=crop&w=400&q=80" alt="Jugijan" class="rounded mb-4 h-40 w-full object-cover" />
-            <h3 class="font-bold text-xl mb-2">Jugijan</h3>
-            <p class="text-gray-600">
-                A quiet and green neighborhood perfect for families.
-            </p>
-            </div>
-        </div>
-      </div>
-    </section> -->
 
     <section class="mb-16">
       <div class="container mx-auto">
@@ -142,35 +93,16 @@ useHead({
       </div>
     </section>
 
-    <!-- <section class="bg-teal-50 p-8 rounded-lg max-w-3xl mx-auto">
-      <h2 class="text-3xl font-semibold mb-6 text-center">Contact Us</h2>
-      <form @submit.prevent="knowMore" class="grid gap-6">
-        <input
-          type="text"
-          placeholder="Your Name"
-          required
-          class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400"
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          required
-          class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400"
-        />
-        <textarea
-          placeholder="Your Message"
-          required
-          rows="4"
-          class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400"
-        ></textarea>
-        <button
-          type="submit"
-          class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-lg transition"
-        >
-          Send Message
-        </button>
-      </form>
-    </section> -->
+    <section class="my-16">
+      <div class="container mx-auto grid grid-cols-3">
+        <div>
+          <img :src="Family" class="max-w-[300px] mx-auto" />
+        </div>
+        <div>
+          <img :src="SkyLink" class="" />
+        </div>
+      </div>
+    </section>
 
     <section class="my-16">
         <div class="container mx-auto flex flex-col items-center">
