@@ -43,13 +43,12 @@ class MediaController extends Controller
         $file = $request->file('file');
         $disk = 's3';
         $uuid = Str::uuid()->toString();
-        $path = 'uploads/' . date('Y/m/d') . '/' . $uuid . '.' . $file->getClientOriginalExtension();
+        $dir = 'uploads/' . date('Y/m/d'); // just the folder
         $filename = $uuid . '.' . $file->getClientOriginalExtension();
+        $path = $dir . '/' . $filename;
 
         // Store the file
-        // Storage::disk($disk)->put($path, file_get_contents($file));
-        Storage::disk($disk)->putFileAs($path, $file, $filename);
-        // $file->storeAs($path, $filename, 's3');
+        Storage::disk($disk)->putFileAs($dir, $file, $filename);
 
         // Get image metadata
         $width = $height = null;
@@ -60,7 +59,7 @@ class MediaController extends Controller
         $media = Media::create([
             'uuid' => $uuid,
             'original_name' => $file->getClientOriginalName(),
-            'filename' => $uuid . '.' . $file->getClientOriginalExtension(),
+            'filename' => $filename,
             'path' => $path,
             'disk' => $disk,
             'mime_type' => $file->getMimeType(),
