@@ -173,13 +173,13 @@ const rightNavItems: NavItem[] = [
                                     <component v-if="item.icon" :is="item.icon" class="h-5 w-5" />
                                     {{ item.title }}
                                     </Link>
-                                </nav> -->
+                                </nav>
                                 <div class="flex flex-col">
                                     <div v-for="item in rightNavItems" :key="item.title"
                                         class="flex items-center space-x-2 text-sm font-medium">
                                         <!-- <component v-if="item.icon" :is="item.icon" class="h-5 w-5" /> -->
                                         <span>{{ item.title }}</span>
-                                    </a>
+                                </div>
                                 </div>
                             </div>
                         </SheetContent>
