@@ -7,6 +7,10 @@ Route::get('/', function () {
     return Inertia::render('Home');
 })->name('home');
 
+Route::get('/test', function () {
+    return Inertia::render('test');
+})->name('test');
+
 Route::get('/divine-green', function () {
     return Inertia::render('DivineGreen');
 })->name('divine.green');
