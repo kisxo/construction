@@ -17,7 +17,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
         // Dashboard page
         Route::get('/', function () {
-            return Inertia::render('Dashboard');
+            return Inertia::render('Admin/Dashboard');
         })->name('dashboard');
     });
 });
