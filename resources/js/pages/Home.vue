@@ -134,6 +134,13 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://www.sundaramdevelopers.in/'}
   ],
+  link: [
+    { rel: 'preload', href: horoGauri, as:'image'},
+    { rel: 'preload', href: PBArcade, as:'image'},
+    { rel: 'preload', href: divineGreen, as:'image'},
+    { rel: 'preload', href: shivashree, as:'image'},
+    { rel: 'preload', href: skyLinkHeight, as:'image'}
+  ]
 });
 
 
@@ -142,14 +149,19 @@ useHead({
 <template>
   <AppLayout>
     <!-- hero Section -->
-    <section class="relative w-full h-[70vh] overflow-hidden" id="herotop">
-      <Carousel v-bind="carouselConfig" class="w-full h-full">
+    <!-- class="relative w-full h-[70vh] overflow-hidden" -->
+    <!-- class="w-full h-full object-cover object-center brightness-40"  -->
+    <section  style="position: relative; width: 100%; height: 70vh; overflow: hidden;" id="herotop">
+      <Carousel v-bind="carouselConfig" style="width: 100%; height: 100%;">
         <Slide v-for="image in imagesSm" :key="image">
-          <div class="w-full h-[70vh] relative">
+          <div style="width: 100%; height: 70vh; position: relative;">
             <img 
             :src="image" 
             alt="Hero Slide" 
-            class="w-full h-full object-cover object-center brightness-40" 
+            
+            style="width: 100%; height: 100; object-fit: cover; filter: brightness(40%);"
+            decoding="async"
+            fetchpriority="high"
             />
           </div>
         </Slide>
@@ -209,15 +221,16 @@ useHead({
         <!-- <div style="position: relative; width: 100%; max-width: 560px; aspect-ratio: 16/9; overflow: hidden;">
           <iframe src="https://www.youtube.com/embed/EEIYufLHfso?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=EEIYufLHfso&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;rel=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="true" title="Video" style="width:100%; height:100%; border:0; display:block; object-fit:cover; pointer-events: none; cursor: default;" loading="lazy"> </iframe>
         </div> -->
-        <div style="position:relative;width:100%;max-width:560px;aspect-ratio:16/14;overflow:hidden;">
+        <div style="position:relative;width:100%;overflow:hidden; display:flex; justify-content: center;">
           <video
             :src="video"            
-            controls
+            controls='false'
             autoplay
             muted
             loop
             playsinline
-            style="width:100%;height:100%;object-fit:cover;display:block;border:0;"
+            class="aspect-[11/16] md:aspect-square"
+            style="width:auto;height:100%;object-fit:cover;display:block;border:0; margin: auto; max-height: 600px;"
           ></video>
         </div>
 

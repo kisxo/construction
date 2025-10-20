@@ -282,6 +282,18 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://www.sundaramdevelopers.in/shibashree'}
   ],
+  link: [
+    { rel:'preload', as:'image', href:shs_img1 },
+    { rel:'preload', as:'image', href:img_1 },
+    { rel:'preload', as:'image', href:img_2 },
+    { rel:'preload', as:'image', href:img_3 },
+    { rel:'preload', as:'image', href:img_4 },
+    { rel:'preload', as:'image', href:floor_plan_1 },
+    { rel:'preload', as:'image', href:parking },
+    { rel:'preload', as:'image', href:planing_1 },
+    { rel:'preload', as:'image', href:planing_2 },
+    { rel:'preload', as:'image', href:planing_3 }
+  ]
 });
 
 </script>

@@ -203,6 +203,11 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://www.sundaramdevelopers.in/pb-arcade'}
   ],
+  link: [
+    { rel:'preload', as:'image', href:main_img },
+    { rel:'preload', as:'image', href:img_1 },
+    { rel:'preload', as:'image', href:img_2 }
+  ]
 });
 
 </script>

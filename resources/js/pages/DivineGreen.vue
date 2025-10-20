@@ -404,6 +404,13 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://www.sundaramdevelopers.in/divine-green'}
   ],
+  link: [
+    { rel:'preload', as:'image', href:divine1sm },
+    { rel:'preload', as:'image', href:divine1 },
+    { rel:'preload', as:'image', href:divine2 },
+    { rel:'preload', as:'image', href:sitePlan },
+    { rel:'preload', as:'image', href:floorPlan }
+  ]
 });
 
 

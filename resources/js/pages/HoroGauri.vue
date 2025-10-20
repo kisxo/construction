@@ -364,6 +364,12 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://www.sundaramdevelopers.in/horo-gauri'}
   ],
+  link: [
+    { rel:'preload', as:'image', href:hg1sm },
+    { rel:'preload', as:'image', href:hg1 },
+    { rel:'preload', as:'image', href:hg2 },
+    { rel:'preload', as:'image', href:hg3 },
+  ]
 });
 
 

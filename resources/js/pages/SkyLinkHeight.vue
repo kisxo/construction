@@ -20,6 +20,8 @@ import { IpSurveillanceCameras, IpWater } from 'vue-icons-plus/ip';
 import { MapPin } from 'lucide-vue-next';
 import { HiMiniLightBulb } from 'vue-icons-plus/hi2';
 import { IoBarbell } from 'vue-icons-plus/io';
+import constra from "../../video/constra.webm";
+import Brochure from "../../pdf/sky-link-heights | sundaram deve.lopers.pdf"
 
 const imagesSm = [skyLink1, skyLink2, skyLink3];
 
@@ -320,6 +322,12 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://www.sundaramdevelopers.in/sky-link-heights'}
   ],
+  link: [
+    { rel:'preload', as:'image', href:skyLink1 },
+    { rel:'preload', as:'image', href:skyLink2 },
+    { rel:'preload', as:'image', href:skyLink3 },
+    { rel:'preload', as:'image', href:skyLink4 }
+  ]
 });
 
 
@@ -332,7 +340,7 @@ useHead({
       <Carousel v-bind="carouselConfig" class="w-full h-full">
         <Slide v-for="image in imagesSm" :key="image">
           <div class="w-full h-[65vh] relative">
-            <img :src="image" alt="Hero Slide" class="w-full h-full object-cover object-center brightness-40" />
+            <img :src="image" alt="Hero Slide" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(40%);" />
           </div>
         </Slide>
       </Carousel>
@@ -358,6 +366,9 @@ useHead({
         </div>
         <div class="flex flex-col justify-center gap-6 leading-8 text-white text-lg">
           <p><span class="font-semibold italic">'SKY LINK HEIGHTS'</span>  is a contemporary residential development set in the prime locality of <span class="font-semibold italic">Atilagaon, Jorhat</span>. Comprising two elegant 6-storey linear blocks, it blends architecture with nature through cascading <span class="font-semibold italic">terraced garden decks</span> and a stunning <span class="font-semibold italic">double-height sky bridge</span>  connecting the 3rd to 5th floors. Overlooking a vibrant central green, this thoughtfully designed space offers a harmonious lifestyle elevated above the ordinary.</p>
+          <div class="pt-8">
+            <a :href="Brochure" download="true" class=" bg-orange-500 text-white font-semibold px-4 py-2 rounded-md shadow hover:shadow-xl hover:scale-95 shadow-blue-800">Download Brochure</a>
+          </div>
         </div>
       </div>
     </section>
@@ -414,9 +425,21 @@ useHead({
       <h2 class="text-3xl font-extrabold text-center kanit-semibold">Specifications</h2>
       <div class="container mx-auto mt-6">
         <div class="grid lg:grid-cols-2 gap-4 md:gap-6 py-8">
-          <div class="aspect-[16/9] h-auto my-auto">
+          <!-- <div class="aspect-[16/9] h-auto my-auto">
             <iframe src="https://www.youtube.com/embed/nwLQ3s3Fwtk?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=nwLQ3s3Fwtk&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;rel=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="false" title="Video" style="width:100%; height:100%; border:0; display:block; object-fit:cover; pointer-events: none; cursor: default;"></iframe>
-          </div>
+          </div> -->
+          <div style="position:relative;width:100%;overflow:hidden; display:flex; justify-content: center;">
+          <video
+            :src="constra"            
+            controls='false'
+            autoplay
+            muted
+            loop
+            playsinline
+            class="aspect-[16/12] max-h-[450px] w-full h-auto"
+            style="object-fit:cover;display:block;border:0; margin: auto; "
+          ></video>
+        </div>
           <div class="px-5 py-8 text-left space-y-2 ">
             <p v-for="spec in specifications" :key="spec.title" >
               <b class="font-semibold text-xl text-zinc-800 kanit-medium me-1">{{ spec.title }}:</b>
