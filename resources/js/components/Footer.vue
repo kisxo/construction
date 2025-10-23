@@ -35,9 +35,9 @@
       <div class="lg:col-span-2">
         <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
         <ul class="space-y-2 text-gray-400 text-sm">
-          <li><RouterLink to="/" class="hover:text-white">Home</RouterLink></li>
-          <li><RouterLink to="/about" class="hover:text-white">About Us</RouterLink></li>
-          <li><RouterLink to="/contact" class="hover:text-white">Contact</RouterLink></li>
+          <li><Link to="/" class="hover:text-white">Home</Link></li>
+          <li><Link to="/about" class="hover:text-white">About Us</Link></li>
+          <li><Link to="/contact" class="hover:text-white">Contact</Link></li>
         </ul>
       </div>
 

@@ -9,6 +9,7 @@ import skyLink1 from "../../images/sky_link_heights/sky-link-heights-1-sm.avif";
 import skyLink2 from "../../images/sky_link_heights/sky-link-heights-3-sm.avif";
 import skyLink3 from "../../images/sky_link_heights/sky-link-heights-4.avif";
 import skyLink4 from "../../images/sky_link_heights/sky-link-heights-2.avif"
+import skyLink5 from "../../images/sky_link_heights/sdimg.jpg";
 import Footer from '@/components/Footer.vue';
 import { useHead } from '@vueuse/head';
 import { Io5Airplane, Io5Basket, Io5Bus, Io5School, Io5Train } from 'vue-icons-plus/io5';
@@ -22,10 +23,11 @@ import { HiMiniLightBulb } from 'vue-icons-plus/hi2';
 import { IoBarbell } from 'vue-icons-plus/io';
 import constra from "../../video/constra.webm";
 import Brochure from "../../pdf/sky-link-heights | sundaram deve.lopers.pdf"
+import { WhenVisible } from '@inertiajs/vue3';
 
-const imagesSm = [skyLink1, skyLink2, skyLink3];
+const imagesSm = [skyLink1, skyLink5];
 
-const gallery = [skyLink1, skyLink2, skyLink3, skyLink4];
+const gallery = [skyLink5, skyLink1, skyLink2, skyLink3, skyLink4];
 
 const locationBenefits = [
   {
@@ -324,9 +326,9 @@ useHead({
   ],
   link: [
     { rel:'preload', as:'image', href:skyLink1 },
-    { rel:'preload', as:'image', href:skyLink2 },
-    { rel:'preload', as:'image', href:skyLink3 },
-    { rel:'preload', as:'image', href:skyLink4 }
+    { rel:'preload', as:'image', href:skyLink5 },
+    // { rel:'preload', as:'image', href:skyLink3 },
+    // { rel:'preload', as:'image', href:skyLink4 }
   ]
 });
 
@@ -483,10 +485,12 @@ useHead({
       <div class="container mx-auto mt-6">
         <div class="grid md:grid-cols-2 gap-4 md:gap-6 py-8">
           <div v-for="img in gallery" :key="img">
-            <img 
-            :src="img" 
-            class="aspect-[6/5] w-full h-auto rounded shadow object-cover hover:shadow-lg" 
-            loading="lazy"/>
+            <WhenVisible :data="img">
+              <img 
+                :src="img" 
+                class="aspect-[6/5] w-full h-auto rounded shadow object-cover hover:shadow-lg" 
+                loading="lazy"/>
+            </WhenVisible>
           </div>
         </div>
       </div>

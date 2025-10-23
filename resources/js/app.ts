@@ -7,16 +7,16 @@ import { createApp, h } from 'vue';
 import { initializeTheme } from './composables/useAppearance';
 import { createHead } from '@unhead/vue/client';
 
-const appName = import.meta.env.VITE_APP_NAME || 'Sundaram';
+// const appName = import.meta.env.VITE_APP_NAME || 'Sundaram';
 
 const head = createHead();
 
 createInertiaApp({
-    title: (title) => (title ? `${title} - ${appName}` : appName),
+    // title: (title) => (title ? `${title} - ${appName}` : appName),
     resolve: (name) =>
         resolvePageComponent(
             `./pages/${name}.vue`,
-            import.meta.glob<DefineComponent>('./pages/**/*.vue'),
+            import.meta.glob<DefineComponent>('./pages/**/*.vue', {eager: false}),
         ),
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })

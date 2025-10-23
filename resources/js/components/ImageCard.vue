@@ -1,26 +1,35 @@
 <template>
-    <a
-      class="reka-card"
-      :href="link"
-      :class="className"
-    >
-      <div class="reka-card-img-container" :class="className">
-        <img
-          class="reka-card-img"
-          :class="className"
-          :src="image"
-          :alt="title"
-          :title="title"
-          loading="lazy" 
-        />
-        <div class="reka-card-title bg-black/50 text-center">
-          <h3>{{ title }}</h3>
+  <WhenVisible :data="image">
+        <template #fallback>
+            <div class="w-full h-[300px] p-3 bg-zinc-500/30">Loading...</div>
+        </template>
+    <!-- <template> -->
+      <a
+        class="reka-card"
+        :href="link"
+        :class="className"
+      >
+        <div class="reka-card-img-container" :class="className">
+          <img
+            class="reka-card-img"
+            :class="className"
+            :src="image"
+            :alt="title"
+            :title="title"
+            loading="lazy" 
+          />
+          <div class="reka-card-title bg-black/50 text-center">
+            <h3>{{ title }}</h3>
+          </div>
         </div>
-      </div>
-    </a>
-  </template>
+      </a>
+    <!-- </template> -->
+  </WhenVisible>
+</template>
   
-  <script setup lang="ts">
+<script setup lang="ts">
+import { WhenVisible } from '@inertiajs/vue3';
+
   defineProps({
     image: { type: String, required: true },
     title: { type: String, required: true },

@@ -21,7 +21,7 @@ const ImageCard = defineAsyncComponent(()=> import('@/components/ImageCard.vue')
 // import CountingCard from '@/components/CountingCard.vue';
 const CountingCard = defineAsyncComponent(()=> import('@/components/CountingCard.vue'))
 import { Io5Call, Io5Mail } from 'vue-icons-plus/io5';
-import { Link } from '@inertiajs/vue3';
+import { Link, WhenVisible } from '@inertiajs/vue3';
 import { defineAsyncComponent } from 'vue';
 
 // const images = [heroImg1, heroImg2, heroImg3];
@@ -152,20 +152,22 @@ useHead({
     <!-- class="relative w-full h-[70vh] overflow-hidden" -->
     <!-- class="w-full h-full object-cover object-center brightness-40"  -->
     <section  style="position: relative; width: 100%; height: 70vh; overflow: hidden;" id="herotop">
-      <Carousel v-bind="carouselConfig" style="width: 100%; height: 100%;">
+      <WhenVisible :data="imagesSm">
+        <Carousel v-bind="carouselConfig" style="width: 100%; height: 100%;">
         <Slide v-for="image in imagesSm" :key="image">
-          <div style="width: 100%; height: 70vh; position: relative;">
+          <div style="width: 100%; height: 100%; position: relative;">
             <img 
             :src="image" 
             alt="Hero Slide" 
             
-            style="width: 100%; height: 100; object-fit: cover; filter: brightness(40%);"
+            style="width: 100%; height: 100%; object-fit: cover; filter: brightness(40%);"
             decoding="async"
             fetchpriority="high"
             />
           </div>
         </Slide>
       </Carousel>
+      </WhenVisible>
 
       <!-- ✅ Centered Overlay Content -->
       <div class="absolute inset-0 flex justify-center items-center p-8 lg:pb-16">
@@ -215,7 +217,8 @@ useHead({
       </div>
     </section>
 
-    <section class="p-8 lg:px-16 w-full pt-16">
+    <WhenVisible :data="video" :buffer="500">
+      <section class="p-8 lg:px-16 w-full pt-16">
       <h2 class="text-center">About Us</h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
         <!-- <div style="position: relative; width: 100%; max-width: 560px; aspect-ratio: 16/9; overflow: hidden;">
@@ -235,7 +238,6 @@ useHead({
         </div>
 
 
-
         <div class="flex flex-col justify-center gap-10">
           <h3 class="text-4xl">Welcome to Sundaram Developers</h3>
           <p>Sundaram Developers is a steadily-growing real estate company engaged in construction of several real
@@ -244,7 +246,8 @@ useHead({
         </div>
       </div>
     </section>
-
+    </WhenVisible>
+    
     <section class="p-8 lg:px-16 bg-white">
       <h2 class="text-center">
         Board Of Directors
@@ -252,10 +255,13 @@ useHead({
       <div class="space-y-6">
         <div v-for="director in directors" class="grid lg:grid-cols-2" :key="director.name">
           <div class="flex justify-center">
-            <img 
-            :src="director.img" 
-            :alt="director.name" 
-            loading="lazy" />
+            <WhenVisible :data="director.img">
+              <img 
+                    :src="director.img" 
+                    :alt="director.name" 
+                    loading="lazy" />
+            </WhenVisible>
+            
           </div>
           <div class="flex justify-center flex-col text-center gap-3">
             <h2 class="text-3xl font-medium border-e-4 border-black py-2 border-b-1">{{ director.name }}</h2>
@@ -265,13 +271,16 @@ useHead({
       </div>
     </section>
 
-        <section class="p-8 lg:px-16">
-      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 bg-blue-600 py-5">
-        <CountingCard :to="1999" :duration="1000" label="Since" />
-        <CountingCard :to="405" :duration="1250" label="Clients" postfix="+" class="md:border-x-3 border-white"/>
-        <CountingCard :to="53" :duration="1500" label="Projects" postfix="+"/>
-      </div>
-    </section>
+    <WhenVisible :data="video">
+      <section class="p-8 lg:px-16">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 bg-blue-600 py-5">
+          <CountingCard :to="1999" :duration="1000" label="Since" />
+          <CountingCard :to="405" :duration="1250" label="Clients" postfix="+" class="md:border-x-3 border-white"/>
+          <CountingCard :to="53" :duration="1500" label="Projects" postfix="+"/>
+        </div>
+      </section>
+    </WhenVisible>
+        
 
 
     <section class="p-8 lg:px-16 text-zinc-900">

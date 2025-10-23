@@ -46,8 +46,92 @@
 
         @vite(['resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])
         @inertiaHead
+
+        <style>
+            /* CSS for the loader */
+            .initial-loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.9);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
+    
+            .spinner {
+                border: 4px solid rgba(0, 0, 0, 0.1);
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                border-left-color: #09f;
+                animation: spin 1s ease infinite;
+            }
+    
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
+            .modal-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.6);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+              }
+              
+              .modal-content {
+                background-color: white;
+                padding: 2rem;
+                border-radius: 8px;
+                position: relative;
+                min-width: 300px;
+                max-width: 90vw;
+                max-height: 90vh;
+                overflow-y: auto;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              }
+              
+              .close-button {
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                border: none;
+                background: transparent;
+                font-size: 1.75rem;
+                line-height: 1;
+                cursor: pointer;
+                color: #333;
+              }
+              
+              /* Transition styles for the fade effect */
+              .fade-enter-active, .fade-leave-active {
+                transition: opacity 0.3s ease;
+              }
+              .fade-enter-from, .fade-leave-to {
+                opacity: 0;
+              }
+              #loadingModal {
+                display: none; /* Hidden by default, shown by JS */
+            }
+        </style>
     </head>
     <body class="font-sans antialiased">
         @inertia
+        {{-- <div id="app" data-page="{{ json_encode($page) }}">
+            <!-- ===== YOUR LOADER HTML GOES HERE ===== -->
+            <div class="initial-loader">
+                <div class="spinner"></div>
+            </div>
+        </div> --}}
     </body>
 </html>

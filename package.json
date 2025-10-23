@@ -29,8 +29,11 @@
         "vue-tsc": "^2.2.4"
     },
     "dependencies": {
+        "@inertiajs/progress": "^0.2.7",
+        "@inertiajs/server": "^0.1.0",
         "@inertiajs/vue3": "^2.1.0",
         "@unhead/vue": "^2.0.18",
+        "@vue/server-renderer": "^3.5.22",
         "@vueuse/core": "^12.8.2",
         "@vueuse/head": "^2.0.0",
         "class-variance-authority": "^0.7.1",
