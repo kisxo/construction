@@ -10,53 +10,66 @@ import skyLink2 from "../../images/sky_link_heights/sky-link-heights-3-sm.avif";
 import skyLink3 from "../../images/sky_link_heights/sky-link-heights-4.avif";
 import skyLink4 from "../../images/sky_link_heights/sky-link-heights-2.avif"
 import skyLink5 from "../../images/sky_link_heights/sdimg.jpg";
+import master from "../../images/sky_link_heights/master-plan.avif";
+import bhkUnitC from "../../images/sky_link_heights/1BHK-unit-c.avif";
+import bhk2UnitB from "../../images/sky_link_heights/2BHK-unit-b.avif";
+import bhk2UnitC from "../../images/sky_link_heights/2BHK-unit-c.avif";
+import bhk2UnitD from "../../images/sky_link_heights/2BHK-unit-d.avif";
+import bhk3FlatA from "../../images/sky_link_heights/3BHK-flat-a.avif";
+import bhk3FlatB from "../../images/sky_link_heights/3BHK-flat-b.avif";
+import bhk3FlatC from "../../images/sky_link_heights/3BHK-flat-c.avif";
+import bhk3FlatD from "../../images/sky_link_heights/3BHK-flat-d.avif";
+import bhk3UnitA from "../../images/sky_link_heights/3BHK-unit-a.avif";
+import bhk3UnitB from "../../images/sky_link_heights/3BHK-unit-a.avif";
+import bhk3UnitC from "../../images/sky_link_heights/3BHK-unit-d.avif";
+import bhk3UnitD from "../../images/sky_link_heights/3BHK-unit-e.avif";
 import Footer from '@/components/Footer.vue';
 import { useHead } from '@vueuse/head';
-import { Io5Airplane, Io5Basket, Io5Bus, Io5School, Io5Train } from 'vue-icons-plus/io5';
 // import { Building2 } from 'lucide-vue-next';
-import { Fa6Hospital, Fa6Lightbulb, Fa6Lock, Fa6PersonRunning, Fa6Recycle, Fa6UmbrellaBeach } from 'vue-icons-plus/fa6';
+import { Fa6Lightbulb, Fa6Lock, Fa6PersonRunning, Fa6Recycle, Fa6UmbrellaBeach } from 'vue-icons-plus/fa6';
 import { MdChildCare, MdGroupWork, MdSolarPower, MdWifi } from 'vue-icons-plus/md';
 import { BsCameraReelsFill } from 'vue-icons-plus/bs';
 import { IpSurveillanceCameras, IpWater } from 'vue-icons-plus/ip';
-import { MapPin } from 'lucide-vue-next';
 import { HiMiniLightBulb } from 'vue-icons-plus/hi2';
 import { IoBarbell } from 'vue-icons-plus/io';
 import constra from "../../video/constra.webm";
 import Brochure from "../../pdf/sky-link-heights | sundaram deve.lopers.pdf"
 import { WhenVisible } from '@inertiajs/vue3';
+import { MapPinIcon } from '@heroicons/vue/16/solid';
+import { Bus, Hospital, LucideShoppingBasket, Plane, School, Train } from 'lucide-vue-next';
 
 const imagesSm = [skyLink1, skyLink5];
 
-const gallery = [skyLink5, skyLink1, skyLink2, skyLink3, skyLink4];
+const gallery = [skyLink5, skyLink1, skyLink2, skyLink3, skyLink4, master, bhkUnitC, bhk2UnitB, bhk2UnitC, bhk2UnitD, bhk3FlatA, bhk3FlatB, bhk3FlatC, bhk3FlatD, bhk3UnitA, bhk3UnitB, bhk3UnitC, bhk3UnitD];
 
 const locationBenefits = [
   {
-    icon: Io5Train,
+    icon: Train,
     title: "1 km",
     desc: "Jorhat Town Railway Station",
   },
   {
-    icon: Io5Airplane,
+    icon: Plane,
     title: "5 km",
     desc: "Jorhat Airport",
   },
   {
-    icon: Io5Bus,
+    icon: Bus,
     title: "2.8 km",
     desc: "ISBT Jorhat",
   },
   {
-    icon: Fa6Hospital,
+    icon: Hospital,
     title: "2.2 km",
     desc: "Jorhat Medical College & Hospital",
   },
   {
-    icon: Io5School,
+    icon: School,
     title: "5.8 km",
     desc: "Air Force School Jorhat",
   },
   {
-    icon: Io5Basket,
+    icon: LucideShoppingBasket,
     title: "1.7 km",
     desc: "Vishal Mega Mart",
   },
@@ -353,7 +366,7 @@ useHead({
           <p class="text-2xl  mb-6">Modern Living in the Heat of Jorhat</p>
           <h1 class="text-6xl kanit-bold">Sky Link Height</h1>
           <p class="flex items-center gap-2 text-2xl pt-2 kanit-medium">
-            <MapPin />
+            <MapPinIcon class="size-2 w-8 h-8" />
             Atilagoan, Jorhat, Assam
           </p>
         </div>

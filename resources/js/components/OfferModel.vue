@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import skyLink from "../../images/sky_link_heights/sdimg.jpg";
+import skyLink from "../../images/sky_link_heights/sdimg_sm.png";
 import { Link } from '@inertiajs/vue3';
+import { useHead } from '@vueuse/head';
+import { heights } from '@/routes/sky/link';
 
 // Define props to control visibility from the parent
 const props = defineProps({
@@ -25,6 +27,12 @@ watch(() => props.show, (newVal) => {
 function closeModal() {
   emit('close');
 }
+
+useHead({
+  link: [
+    { rel: 'preload', href: skyLink, as:'image'}
+  ]
+});
 </script>
 
 <template>
@@ -37,17 +45,24 @@ function closeModal() {
         </button>
         <!-- The content of the popup will be passed in here -->
         <div class="relative">
-            <h2 class="font-semibold text-blue-500 text-xl text-center mb-4">Affordable Housing at <strong>Jorhat</strong></h2>
+            <div class="flex justify-center items-center gap-4 mb-4">
+              <img src="../../../public/logo.png" class="w-8 h-8" />
+              <h2 class="font-semibold text-blue-700 text-xl text-center">Affordable Housing in <strong>Jorhat</strong></h2>
+            </div>
             <img :src="skyLink" class="h-full md:max-w-[600px] max-w-[290px] w-auto" />
             <div class="absolute ">
-                <img src="../../images/family.webp" class="max-w-[130px] md:max-w-[200px] -mt-58 md:-mt-80" />
-                <span class="absolute px-5 py-2 -mt-14 -mx-4 shadow-lg shadow-black font-bold text-lg md:text-3xl bg-red-500 text-white">
-                    Limited Offer
+                <picture>
+                  <!-- <source media="(min-width:650px)" srcset="img_pink_flowers.jpg"> -->
+                  <source media="(max-width:500px)" srcset="../../images/family.webp">
+                  <img src="../../images/family_sm.webp" alt="family" class="max-w-[130px] md:max-w-[200px] -mt-58 md:-mt-80">
+                </picture> 
+                <span class="absolute px-5 py-2 -mt-14 -mx-4 shadow-lg shadow-black font-bold text-lg md:text-3xl bg-red-700 text-white whitespace-nowrap">
+                    Home, Sweet Home!
                 </span>
             </div>
             <div class="flex flex-col sm:flex-row text-center items-center justify-center sm:gap-4 gap-2 pt-8">
                 <p class="text-blue-600 font-semibold uppercase text-2xl">Sky Link Heights</p>
-                <Link to="/sky-link-heights" class="font-bold text-white bg-green-600 p-2 rounded-xl shadow hover:scale-95" >know more</Link>
+                <Link :to="heights()" class="font-bold text-white bg-red-600 p-2 px-4 rounded-xl shadow hover:scale-95" >know more</Link>
             </div>
         </div>
       </div>
@@ -85,10 +100,10 @@ function closeModal() {
 .close-button {
   position: absolute;
   top: 0.5rem;
-  right: 0.5rem;
+  right: 1rem;
   border: none;
   background: transparent;
-  font-size: 1.75rem;
+  font-size: 2rem;
   line-height: 1;
   cursor: pointer;
   color: #333;
@@ -96,7 +111,7 @@ function closeModal() {
 
 /* Transition styles for the fade effect */
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 .fade-enter-from, .fade-leave-to {
   opacity: 0;

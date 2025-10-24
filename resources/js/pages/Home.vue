@@ -4,7 +4,7 @@ import 'vue3-carousel/dist/carousel.css';
 const AppLayout = defineAsyncComponent(()=> import('@/layouts/AppLayout.vue'));
 import { Carousel, Slide } from 'vue3-carousel';
 import divineGreen from "../../images/divine_green/divine-green-640x480.avif";
-import skyLinkHeight from "../../images/sky_link_heights/sky-link-heights-1-sm.avif";
+import skyLinkHeight from "../../images/sky_link_heights/sdimg_sm.png";
 import shivashree from "../../images/shivashree/shivashree_956x768.avif";
 import horoGauri from "../../images/horo_gauri/HoroGauri_1_540x.avif";
 import PBArcade from "../../images/pb_arcade/main_img_sm.avif";
@@ -15,41 +15,42 @@ import video from "../../video/dfsdfasfaf.webm";
 // import Footer from '@/components/Footer.vue';
 const Footer = defineAsyncComponent(()=> import('@/components/Footer.vue'))
 import { useHead } from '@vueuse/head';
-import { Fa6Hotel, Fa6Leaf, Fa6Shield, Fa6Wifi } from 'vue-icons-plus/fa6';
+import { Fa6Hospital } from 'vue-icons-plus/fa6';
 // import ImageCard from '@/components/ImageCard.vue';
 const ImageCard = defineAsyncComponent(()=> import('@/components/ImageCard.vue'))
 // import CountingCard from '@/components/CountingCard.vue';
 const CountingCard = defineAsyncComponent(()=> import('@/components/CountingCard.vue'))
-import { Io5Call, Io5Mail } from 'vue-icons-plus/io5';
+import { Io5Airplane, Io5Basket, Io5Bus, Io5Call, Io5Mail, Io5School, Io5Train } from 'vue-icons-plus/io5';
 import { Link, WhenVisible } from '@inertiajs/vue3';
 import { defineAsyncComponent } from 'vue';
+import { Hotel, Leaf, PhoneCall, Shield, WifiHigh } from 'lucide-vue-next';
 
 // const images = [heroImg1, heroImg2, heroImg3];
 
-const imagesSm = [horoGauri, PBArcade, divineGreen, shivashree, skyLinkHeight];
+const imagesSm = [horoGauri, PBArcade, skyLinkHeight];
 const keyFeatures = [
   {
-    icon: Fa6Wifi,
+    icon: WifiHigh,
     title: 'Smart Home Technology',
     desc: 'Connected living made simple',
     // img: heroImg1
   },
   {
-    icon: Fa6Leaf,
+    icon: Leaf,
     title: 'Eco-Friendly Design',
     desc: 'Sustainable and green Spaces',
     // img: heroImg1
   },
   {
-    icon: Fa6Hotel,
-    title: 'Eco-Friendly Design',
-    desc: '24/7 Security',
+    icon: Hotel,
+    title: 'Premium Amenities',
+    desc: 'World-class facilities',
     // img: heroImg1
   },
   {
-    icon: Fa6Shield,
+    icon: Shield,
     title: '24/7 Security',
-    desc: 'World-class facilities',
+    desc: 'Round-the-clock surveiliance',
     // img: heroImg1
   }
 ];
@@ -94,6 +95,41 @@ const directors = [
     desc: "A Govt. contractor and a real state businessman."
   }
 ];
+const locationBenefits = [
+  {
+    icon: Io5Train,
+    title: "1 km",
+    desc: "Railway Stations",
+  },
+  {
+    icon: Io5Airplane,
+    title: "5 km",
+    desc: "Airports",
+  },
+  {
+    icon: Io5Bus,
+    title: "2.8 km",
+    desc: "Public Transport",
+  },
+  {
+    icon: Fa6Hospital,
+    title: "2.2 km",
+    desc: "Medical & Hospitals",
+  },
+  {
+    icon: Io5School,
+    title: "5.8 km",
+    desc: "Educational Institutes",
+  },
+  {
+    icon: Io5Basket,
+    title: "1.7 km",
+    desc: "Shopping Marts",
+  },
+];
+const skyLinkFeatures = [
+  'Solar Panels','Smart Lighting System','WiFi-enabled Security Cameras','Gym & Fitness Studio','Multi-purpose Hall','Motion Sensors'
+]
 
 // const countscard = [
 //   {
@@ -137,8 +173,8 @@ useHead({
   link: [
     { rel: 'preload', href: horoGauri, as:'image'},
     { rel: 'preload', href: PBArcade, as:'image'},
-    { rel: 'preload', href: divineGreen, as:'image'},
-    { rel: 'preload', href: shivashree, as:'image'},
+    // { rel: 'preload', href: divineGreen, as:'image'},
+    // { rel: 'preload', href: shivashree, as:'image'},
     { rel: 'preload', href: skyLinkHeight, as:'image'}
   ]
 });
@@ -205,6 +241,19 @@ useHead({
       </div>
     </section>
 
+    <section class="bg-white p-4 py-14">
+      <h2 class="text-3xl font-extrabold text-center kanit-semibold">Prime Location Benefits</h2>
+      <div class="container mx-auto mt-6">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 md:gap-8 py-8">
+          <div v-for="benefit in locationBenefits" :key="benefit.title" class="bg-white p-4 py-8 rounded-lg text-center hover:shadow-xl transition shadow-xs duration-300">
+            <component :is="benefit.icon" class="w-10 h-10 mx-auto text-sky-600" />
+            <!-- <h3 class="mt-5 font-semibold text-xl text-blue-800 mb-1 kanit-medium">{{ benefit.title }}</h3> -->
+            <p class="text-zinc-600">{{ benefit.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="p-8 lg:px-16 bg-neutral-100">
       <h2 class="mx-auto text-center">Key Features</h2>
       <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 p-4 py-8">
@@ -217,8 +266,30 @@ useHead({
       </div>
     </section>
 
+    <section class="p-8 lg:px-16">
+      <div class="container mx-auto">
+        <div class="grid lg:grid-cols-5 md:grid-cols-7 grid-cols-1 gap-6">
+          <div class="lg:col-span-2 md:col-span-3">
+            <img :src="skyLinkHeight" class="rounded-md shadow md:max-w-[400px] h-auto w-full" />
+          </div>
+          <div class="lg:col-span-3 md:col-span-4 ">
+            <h3>Sky Link Heights</h3>
+            <p class="my-2 text-lg">Atilagaon, Jorhat.</p>
+            <div class="flex gap-1.5 flex-wrap my-3">
+              <div v-for="fet in skyLinkFeatures" :key="fet" class="rounded-2xl text-xs px-2 py-1 font-medium text-white bg-zinc-500 shadow">
+                {{ fet }}
+              </div>
+            </div>
+            <div class="mt-10">
+              <a href="./sky-link-heights" class="bg-red-500 text-white font-semibold px-4 py-2 rounded-xl text-lg shadow hover:scale-95 hover:bg-red-600 hover:shadow-xl" prefetch="hover" >Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <WhenVisible :data="video" :buffer="500">
-      <section class="p-8 lg:px-16 w-full pt-16">
+      <section class="p-8 lg:px-16 w-full pt-16 bg-neutral-100">
       <h2 class="text-center">About Us</h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
         <!-- <div style="position: relative; width: 100%; max-width: 560px; aspect-ratio: 16/9; overflow: hidden;">
@@ -300,7 +371,7 @@ useHead({
           <Link href="/contact"
             class="flex gap-2 bg-[#ff4c4c] text-white font-semibold items-center rounded px-5 py-2 shadow cursor-pointer hover:shadow-lg hover:scale-95 transition duration-150">
             <span>Contact Us</span>
-            <Io5Call class="w-4" />
+            <PhoneCall class="w-4" />
           </Link>
         </div>
       </div>

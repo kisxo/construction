@@ -42,6 +42,14 @@ Route::get('/flat-in-jorhat', function () {
     return Inertia::render('seo/Jorhat');
 })->name('seo.jorhat.flat');
 
+Route::get('/2-bhk-flats-available-at-sky-link-heights-jorhat', function () {
+    return Inertia::render('seo/Bhk2');
+})->name('seo.2Bhk.flat');
+Route::get('/3-bhk-flats-available-at-sky-link-heights-jorhat', function () {
+    return Inertia::render('seo/Bhk3');
+})->name('seo.3Bhk.flat');
+
+
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

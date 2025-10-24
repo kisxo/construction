@@ -43,7 +43,7 @@ const skyLinkFeatures = [
   'Solar Panels','Smart Lighting System','WiFi-enabled Security Cameras','Gym & Fitness Studio','Multi-purpose Hall','Motion Sensors'
 ]
 
-const pageTitle = "Affordable Flats for Sale in Jorhat - Your Dream Home Awaits | Sundaram Developers";
+const pageTitle = "2 BHK Flats available at Sky Link Heights, Jorhat | Sundaram Developers";
 const pageDescription = "Explore affordable and spacious flats in Jorhat with modern amenities. Find your perfect flat in Jorhat today with flexible pricing and great locations.";
 
 useHead({
@@ -52,7 +52,7 @@ useHead({
     { name: 'description', content: pageDescription },
     { name: 'keywords', content: 'flat in Jorhat, Jorhat apartments, Sundaram Developers, residential flats Assam, buy flat Jorhat, Jorhat real estate, new flats Jorhat, affordable flats Jorhat, premium apartments Jorhat, Jorhat property developers' },
     { property: 'og:title', content: pageTitle },
-    { property: 'og:url', content: "https://wwww.sundaramdevelopers.in/flat-in-jorhat" },
+    { property: 'og:url', content: "https://wwww.sundaramdevelopers.in/2-bhk-flats-available-at-sky-link-heights-jorhat" },
     { property: 'og:description', content: pageDescription },
     { property: 'og:type', content: 'website' },
     { property: 'og:image', content: 'https://wwww.sundaramdevelopers.in/resources/images/hero-3.jpeg' },
@@ -74,7 +74,7 @@ useHead({
                 </div>
             </div>
             <div class="absolute bottom-10 w-full flex flex-col items-center p-8 ">
-                <h1 class="z-50 font-bold text-[150%] md:text-[220%] lg:text-[60px] text-white text-center">Affordable Flats for Sale in Jorhat</h1>
+                <h1 class="z-50 font-bold text-[150%] md:text-[220%] lg:text-[60px] text-white text-center">2 BHK Flats available at Sky Link Heights, Jorhat</h1>
                 <p class="max-w-4xl mx-auto text-md text-center md:text-xl text-zinc-100">
                     Discover cozy and spacious flats in the heart of Jorhat with modern amenities and flexible pricing.
                 </p>

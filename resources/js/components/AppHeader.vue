@@ -23,13 +23,14 @@ import {
 import { toUrl, urlIsActive } from '@/lib/utils';
 import type { BreadcrumbItem, NavItem } from '@/types';
 import { InertiaLinkProps, Link, usePage } from '@inertiajs/vue3';
-import { BookOpen, Folder, Menu } from 'lucide-vue-next';
+// import { BookOpen, Folder, Menu } from 'lucide-vue-next';
 import { computed } from 'vue';
 import InfoBar from './InfoBar.vue';
 import { home } from '@/routes';
 import { DropdownMenuArrow, DropdownMenuItem, DropdownMenuPortal, DropdownMenuRoot } from 'reka-ui';
 import { ref } from 'vue';
 import { Io5ChevronDown } from 'vue-icons-plus/io5';
+import { Bars2Icon, BookOpenIcon, FolderIcon } from '@heroicons/vue/24/solid';
 
 interface Props {
     breadcrumbs?: BreadcrumbItem[];
@@ -94,7 +95,7 @@ const rightNavItems: NavItem[] = [
     {
         title: 'Home',
         href: '/',
-        icon: BookOpen,
+        icon: BookOpenIcon,
     },
     {
         title: 'Projects',
@@ -135,12 +136,12 @@ const rightNavItems: NavItem[] = [
     {
         title: 'Contact',
         href: '/contact',
-        icon: Folder,
+        icon: FolderIcon,
     },
     {
         title: 'About Us',
         href: '/about-us',
-        icon: BookOpen,
+        icon: BookOpenIcon,
     },
 ];
 </script>
@@ -197,13 +198,13 @@ const rightNavItems: NavItem[] = [
                                             completed projects
                                         </p> 
                                         <DropdownMenuItem
-                                        v-for="project in completedProjects"
-                                        :key="project.name"
-                                        value="New Tab"
-                                        class="group leading-none text-grass11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green1 hover:bg-zinc-300"
-                                        
+                                            v-for="project in completedProjects"
+                                            :key="project.name"
+                                            value="New Tab"
+                                            class="group leading-none text-grass11 rounded-[3px] flex items-center h-[25px] px-[5px] py-2 relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green1 hover:bg-zinc-300"
+                                            
                                         >
-                                        <Link :href="project.path" prefetch="hover" cache-for="1m">{{ project.name }}</Link>
+                                            <Link :href="project.path" prefetch="hover" cache-for="1m">{{ project.name }}</Link>
                                         </DropdownMenuItem>
                                         <!-- <DropdownMenuSeparator class="h-[1px] bg-green-600 m-[5px]" /> -->
                                        
@@ -214,7 +215,7 @@ const rightNavItems: NavItem[] = [
                                         v-for="project in underConstructions"
                                         :key="project.name"
                                         value="New Tab"
-                                        class="group leading-none text-grass11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green1 hover:bg-zinc-300"
+                                        class="group leading-none text-grass11 rounded-[3px] flex items-center h-[25px] px-[5px] py-2 relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green1 hover:bg-zinc-300"
                                         
                                         >
                                         <Link :href="project.path" prefetch="hover" cache-for="1m">{{ project.name }}</Link>
@@ -293,7 +294,7 @@ const rightNavItems: NavItem[] = [
                     <Sheet>
                         <SheetTrigger :as-child="true">
                             <Button variant="ghost" size="icon" class="mr-2 h-9 w-9" aria-label="menu">
-                                <Menu class="h-5 w-5" />
+                                <Bars2Icon class="h-5 w-5" />
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="right" class="w-[300px] p-6">
@@ -316,7 +317,7 @@ const rightNavItems: NavItem[] = [
                                         <div v-if="item.subs">
                                             <div v-for="subItem in item.subs" :key="subItem.subTitle"  class="mb-4">
                                                 <p class="border-b">{{ subItem.subTitle }}</p>
-                                                <div v-for="ultraSubItem in subItem.items" class="ps-4 mb-1 hover:bg-zinc-200" :key="ultraSubItem.title">
+                                                <div v-for="ultraSubItem in subItem.items" class="ps-4 py-1 mb-2 hover:bg-zinc-200" :key="ultraSubItem.title">
                                                     <Link :href="toUrl(ultraSubItem.href)" rel="noopener noreferrer" prefetch="hover" >{{ ultraSubItem.title }}</Link>
                                                 </div>
                                             </div>

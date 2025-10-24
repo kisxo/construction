@@ -5,8 +5,8 @@
       <div class="sm:col-span-2 lg:col-span-3">
         <div class="flex items-center gap-2 mb-3">
           <i class="las la-building text-2xl text-white"></i>
-                  <Building/>
-          <h2 class="text-xl font-semibold">Sundaram Developers</h2>
+            <img :src="Logo" class="w-12 h-12" />
+          <h2 class="text-3xl font-semibold">Sundaram Developers</h2>
         </div>
         <p class="text-gray-400 text-sm leading-relaxed">
           Building tomorrow’s communities today with excellence and innovation.
@@ -59,17 +59,18 @@
       </p>
     </div>
 
-     <!-- Back to Top Button -->
+     <!-- phone Button -->
      <a
       href="#header-top"
-      class="fixed bottom-6 left-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-3xl shadow-lg transition"
+      class="fixed bottom-6 left-6 z-50 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-3xl shadow-lg transition"
+      style="z-index: 10;"
       aria-label="move to top"
     >
       <component :is="Io5ChevronUp" class="w-6 h-6 mx-auto" />
       <!-- <i class="las la-angle-up text-lg"></i> -->
     </a>
 
-    <!-- Back to Top Button -->
+    <!-- whatsapp Button -->
     <a
       href="https://wa.me/919435095488"
       target="_blank"
@@ -91,7 +92,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { Building } from "lucide-vue-next";
+import Logo from "../../../public/logo192x192.png";
 import { Io5Call, Io5ChevronUp, Io5LogoWhatsapp } from "vue-icons-plus/io5";
 import { Link } from "@inertiajs/vue3";
 
