@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('media_resources', function (Blueprint $table) {
             $table->id(); // Auto ID (SERIAL PK)
-            $table->string('slug', 150)->unique(); // element name (like home-hero-banner)
-            $table->string('title', 255); // Human-readable name
-            $table->string('type', 50); // image, video, audio, icon, document
+            $table->string('slug', 150); // element name (like home-hero-banner)
+            $table->string('title', 255)->nullable(); // Human-readable name
             $table->foreignId('media_id')->nullable()->constrained('media')->onDelete('cascade');
             $table->text('path'); // URL of the page (/home)
             $table->string('alt_text', 255)->nullable(); // Alternative text (for accessibility)

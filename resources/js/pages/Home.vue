@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css';
 // import AppLayout from '@/layouts/AppLayout.vue';
-const AppLayout = defineAsyncComponent(()=> import('@/layouts/AppLayout.vue'));
+const AppLayout = defineAsyncComponent(() => import('@/layouts/AppLayout.vue'));
 import { Carousel, Slide } from 'vue3-carousel';
 import divineGreen from "../../images/divine_green/divine-green-640x480.avif";
 import skyLinkHeight from "../../images/sky_link_heights/sky-link-heights-1-sm.avif";
@@ -10,22 +10,61 @@ import horoGauri from "../../images/horo_gauri/HoroGauri_1_540x.avif";
 import PBArcade from "../../images/pb_arcade/main_img_sm.avif";
 import Kalyan from "../../images/Kalyan.avif";
 import Saurabh from "../../images/Saurabh.avif";
+import notFoundImg from "../../images/404.png";
 // import clip1 from "../../images/clip1.mp4";
 // import Footer from '@/components/Footer.vue';
-const Footer = defineAsyncComponent(()=> import('@/components/Footer.vue'))
+const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))
 import { useHead } from '@vueuse/head';
 import { Fa6Hotel, Fa6Leaf, Fa6Shield, Fa6Wifi } from 'vue-icons-plus/fa6';
 // import ImageCard from '@/components/ImageCard.vue';
-const ImageCard = defineAsyncComponent(()=> import('@/components/ImageCard.vue'))
+const ImageCard = defineAsyncComponent(() => import('@/components/ImageCard.vue'))
 // import CountingCard from '@/components/CountingCard.vue';
-const CountingCard = defineAsyncComponent(()=> import('@/components/CountingCard.vue'))
+const CountingCard = defineAsyncComponent(() => import('@/components/CountingCard.vue'))
 import { Io5Call, Io5Mail } from 'vue-icons-plus/io5';
 import { Link } from '@inertiajs/vue3';
-import { defineAsyncComponent } from 'vue';
+import { computed, defineAsyncComponent } from 'vue';
+import DynamicMedia from '@/components/DynamicMedia.vue';
+import { useEditorState } from '@/store/Editor';
+import Button from '@/components/ui/button/Button.vue';
+import { MINIO_ENDPOINT } from '@/lib/data';
+import { Auth, User } from '@/types';
 
-// const images = [heroImg1, heroImg2, heroImg3];
+const { openEditor } = useEditorState()
 
-const imagesSm = [horoGauri, PBArcade, divineGreen, shivashree, skyLinkHeight];
+interface MediaItem {
+  id: number
+  slug: string
+  title: string
+  media: {
+    variants: {
+      large: string
+    }
+  }
+}
+/**
+ * Props definition
+ * The component expects an array of registrations.
+ */
+interface Props {
+  pathMedia: MediaItem[]
+  auth: Auth
+}
+const props = defineProps<Props>()
+
+const heroSection = [
+  {
+    slug: "Hero_1",
+    title: "Hero Image 1"
+  },
+  {
+    slug: "Hero_2",
+    title: "Hero Image 2"
+  },
+  {
+    slug: "Hero_3",
+    title: "Hero Image 3"
+  }
+];
 
 const keyFeatures = [
   {
@@ -132,32 +171,37 @@ useHead({
     { property: 'og:title', content: pageTitle },
     { property: 'og:description', content: pageDescription },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://www.sundaramdevelopers.in/'}
+    { property: 'og:url', content: 'https://www.sundaramdevelopers.in/' }
   ],
 });
 
 
+
+const pathMediaMap = computed(() => {
+  if (!props.pathMedia || !Array.isArray(props.pathMedia) || props.pathMedia.length === 0) {
+    return {} // or return null if you prefer
+  }
+  return Object.fromEntries(props.pathMedia.map(item => [item.slug, item]))
+})
+
 </script>
 
 <template>
-  <AppLayout>
+  <AppLayout :auth="props.auth">
     <!-- hero Section -->
+
     <section class="relative w-full h-[70vh] overflow-hidden" id="herotop">
       <Carousel v-bind="carouselConfig" class="w-full h-full">
-        <Slide v-for="image in imagesSm" :key="image">
-          <div class="w-full h-[70vh] relative">
-            <img 
-            :src="image" 
-            alt="Hero Slide" 
-            class="w-full h-full object-cover object-center brightness-40" 
-            loading="eager" />
-          </div>
+        <Slide v-for="hero in heroSection">
+          <DynamicMedia :src="pathMediaMap[hero.slug]" :element-slug="hero.slug" :element-title="hero.title" class="w-full h-full brightness-50 object-center" />
         </Slide>
+        <img :src="notFoundImg" alt="">
+
       </Carousel>
 
       <!-- ✅ Centered Overlay Content -->
       <div class="absolute inset-0 flex justify-center items-center p-8 lg:pb-16">
-        <div class="z-10 p-6 text-white" data-aos="fade-right">
+        <div class="z-[1] p-6 text-white" data-aos="fade-right">
           <h1 class="text-5xl sm:text-6xl font-bold">Building Smart Homes <br> for Modern Living</h1>
           <p class="text-lg pt-4">Discover future-ready smart homes with elegant design, and modern features – all in
             the heart of Guwahati.</p>
@@ -207,7 +251,12 @@ useHead({
       <h2 class="text-center">About Us</h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
         <div style="position: relative; width: 100%; max-width: 560px; aspect-ratio: 16/9; overflow: hidden;">
-          <iframe src="https://www.youtube.com/embed/EEIYufLHfso?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=EEIYufLHfso&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;rel=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="true" title="Video" style="width:100%; height:100%; border:0; display:block; object-fit:cover; pointer-events: none; cursor: default;" loading="lazy"> </iframe>
+          <iframe
+            src="https://www.youtube.com/embed/EEIYufLHfso?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=EEIYufLHfso&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;rel=0"
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            allowfullscreen="true" title="Video"
+            style="width:100%; height:100%; border:0; display:block; object-fit:cover; pointer-events: none; cursor: default;"
+            loading="lazy"> </iframe>
         </div>
 
 
@@ -227,10 +276,7 @@ useHead({
       <div class="space-y-6">
         <div v-for="director in directors" class="grid lg:grid-cols-2" :key="director.name">
           <div class="flex justify-center">
-            <img 
-            :src="director.img" 
-            :alt="director.name" 
-            loading="lazy" />
+            <img :src="director.img" :alt="director.name" loading="lazy" />
           </div>
           <div class="flex justify-center flex-col text-center gap-3">
             <h2 class="text-3xl font-medium border-e-4 border-black py-2 border-b-1">{{ director.name }}</h2>
@@ -240,11 +286,11 @@ useHead({
       </div>
     </section>
 
-        <section class="p-8 lg:px-16">
+    <section class="p-8 lg:px-16">
       <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 bg-blue-600 py-5">
         <CountingCard :to="1999" :duration="1000" label="Since" />
-        <CountingCard :to="405" :duration="1250" label="Clients" postfix="+" class="md:border-x-3 border-white"/>
-        <CountingCard :to="53" :duration="1500" label="Projects" postfix="+"/>
+        <CountingCard :to="405" :duration="1250" label="Clients" postfix="+" class="md:border-x-3 border-white" />
+        <CountingCard :to="53" :duration="1500" label="Projects" postfix="+" />
       </div>
     </section>
 
@@ -265,8 +311,8 @@ useHead({
         <div class="flex justify-center ">
           <Link href="/contact"
             class="flex gap-2 bg-[#ff4c4c] text-white font-semibold items-center rounded px-5 py-2 shadow cursor-pointer hover:shadow-lg hover:scale-95 transition duration-150">
-            <span>Contact Us</span>
-            <Io5Call class="w-4" />
+          <span>Contact Us</span>
+          <Io5Call class="w-4" />
           </Link>
         </div>
       </div>

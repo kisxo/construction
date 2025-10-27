@@ -24,11 +24,31 @@ class MediaResourcesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store or update a media resource by slug + path.
      */
-    public function store(Request $request)
+    public function storeOrUpdate(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'slug' => 'required|string|max:150',
+            'title' => 'nullable|string|max:255',
+            'media_id' => 'required|integer|exists:media,id',
+            'path' => 'required|string',
+            'alt_text' => 'nullable|string|max:255',
+            'caption' => 'nullable|string|max:255',
+            'category' => 'nullable|string|max:100',
+        ]);
+
+        // Either update existing or create new record
+        $resource = MediaResources::updateOrCreate(
+            ['slug' => $validated['slug'], 'path' => $validated['path']],
+            $validated
+        );
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Resource updated successfully',
+            'data' => $resource,
+        ]);
     }
 
     /**

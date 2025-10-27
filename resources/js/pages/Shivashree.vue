@@ -20,6 +20,19 @@ import { BsCameraReelsFill } from 'vue-icons-plus/bs';
 import { IpSurveillanceCameras, IpWater } from 'vue-icons-plus/ip';
 import { HiMiniLightBulb } from 'vue-icons-plus/hi2';
 import { useHead } from '@vueuse/head';
+import DynamicMedia from '@/components/DynamicMedia.vue';
+import { MINIO_ENDPOINT } from '@/lib/data';
+
+/**
+ * Props definition
+ * The component expects an array of registrations.
+ */
+interface Props {
+    pathMedia: any
+}
+const props = defineProps<Props>()
+
+console.log(props.pathMedia)
 
 const gallery = [floor_plan_1, parking, planing_1, planing_2, planing_3, img_1, img_2, img_3, img_4];
 
@@ -62,19 +75,19 @@ const lifestyleAmenities = [
         icon: Io5BuildSharp,
         points: [
             {
-                title:"Clubhouse & Lounge",
+                title: "Clubhouse & Lounge",
                 icon: Fa6UmbrellaBeach
             },
             {
-                title:"Children's Play Area",
+                title: "Children's Play Area",
                 icon: MdChildCare
             },
             {
-                title:"Gym & Fitness Studio",
+                title: "Gym & Fitness Studio",
                 icon: IoBarbell
             },
             {
-                title:"Multi-purpose Hall",
+                title: "Multi-purpose Hall",
                 icon: BsCameraReelsFill
             }
         ],
@@ -86,17 +99,17 @@ const lifestyleAmenities = [
         icon: Io5LeafOutline,
         points: [
             {
-                title:"Rain Water Harvesting",
+                title: "Rain Water Harvesting",
                 icon: IpWater
-            },{
-                title:"Solar Panels",
+            }, {
+                title: "Solar Panels",
                 icon: MdSolarPower
-            },{
-                title:"Energy-efficient Lighting",
+            }, {
+                title: "Energy-efficient Lighting",
                 icon: HiMiniLightBulb
-            },{
-                title:"Recycled Materials",
-                icon:Fa6Recycle
+            }, {
+                title: "Recycled Materials",
+                icon: Fa6Recycle
             }
         ],
         aosDelay: 100,
@@ -107,20 +120,20 @@ const lifestyleAmenities = [
         icon: Io5PhonePortrait,
         points: [
             {
-                title:"Smart Lighting System",
-                icon:Fa6Lightbulb
+                title: "Smart Lighting System",
+                icon: Fa6Lightbulb
             },
             {
-                title:"App-based Door Unlock",
-                icon:Fa6Lock
+                title: "App-based Door Unlock",
+                icon: Fa6Lock
             },
             {
-                title:"Motion Sensors",
-                icon:Fa6PersonRunning
+                title: "Motion Sensors",
+                icon: Fa6PersonRunning
             },
             {
-                title:"WiFi-enabled Security Cameras",
-                icon:IpSurveillanceCameras
+                title: "WiFi-enabled Security Cameras",
+                icon: IpSurveillanceCameras
             }
         ],
         aosDelay: 200,
@@ -273,25 +286,23 @@ const pageTitle = "Shivashree | Sundaram Developers";
 const pageDescription = "Experience modern, sustainable living in Tezpur the scenic city on the north bank of the Brahmaputrav, well-connected by air, rail, and road. Offering thoughtfully designed 1BHK, 2BHK, and 3BHK apartments with the latest architectural style, built under expert supervision. A perfect blend of comfort, elegance, and security — a dream home you’ll be proud to own. ";
 
 useHead({
-  title: pageTitle,
-  meta: [
-    { name: 'description', content: pageDescription },
-    { name: 'keywords', content: 'shivashree, flats near ASTC Tezpur, flats near tezpur railway, apartments, Sundaram Developers, residential, Assam, real estate, affordable, flats, premium, construction, tezpur, property, developers' },
-    { property: 'og:title', content: pageTitle },
-    { property: 'og:description', content: pageDescription },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://www.sundaramdevelopers.in/shibashree'}
-  ],
+    title: pageTitle,
+    meta: [
+        { name: 'description', content: pageDescription },
+        { name: 'keywords', content: 'shivashree, flats near ASTC Tezpur, flats near tezpur railway, apartments, Sundaram Developers, residential, Assam, real estate, affordable, flats, premium, construction, tezpur, property, developers' },
+        { property: 'og:title', content: pageTitle },
+        { property: 'og:description', content: pageDescription },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://www.sundaramdevelopers.in/shibashree' }
+    ],
 });
 
 </script>
 
 <template>
     <AppLayout>
-        <div class="relative w-full h-[65vh] overflow-hidden">
-            <div class="w-full h-[65vh] relative">
-                <img :src="shs_img1" alt="Hero Slide" class="w-full h-full object-cover object-center brightness-40" />
-            </div>
+        <div class="w-full">
+            <DynamicMedia :src="MINIO_ENDPOINT + props.pathMedia.find(el => el.slug === 'Hero-1').media.variants.large" :element-slug="'Hero-1'" :element-title="'Hero Image 1'" :class="'w-full h-[450px] object-cover'"/>
             <!-- ✅ Centered Overlay Content -->
             <div class="container mx-auto absolute inset-0 flex justify-start px-10 items-center">
                 <div class="z-10 p-6 text-white" data-aos="fade-right">
@@ -320,9 +331,11 @@ useHead({
                 <div class="flex flex-col justify-center gap-6 leading-8 text-white text-lg">
                     <p>
                         Experience modern, sustainable living in <span class="font-semibold italic">Tezpur</span>
-                        the scenic city on the north bank of the <span class="font-semibold italic"> Brahmaputrav</span>, well-connected by air, rail, and
+                        the scenic city on the north bank of the <span class="font-semibold italic">
+                            Brahmaputrav</span>, well-connected by air, rail, and
                         road.
-                        Offering thoughtfully designed <span class="font-semibold italic"> 1BHK, 2BHK, and 3BHK </span>apartments with the latest
+                        Offering thoughtfully designed <span class="font-semibold italic"> 1BHK, 2BHK, and 3BHK
+                        </span>apartments with the latest
                         architectural style, built under expert supervision.
                         A perfect blend of comfort, elegance, and security — a dream home you’ll be proud to own.
                     </p>
@@ -360,7 +373,8 @@ useHead({
 
                         <!-- Points List -->
                         <div class="flex flex-col gap-3 ps-5 text-start">
-                            <div v-for="featureItem in item.points" :key="featureItem.title" class="flex gap-2 text-start">
+                            <div v-for="featureItem in item.points" :key="featureItem.title"
+                                class="flex gap-2 text-start">
                                 <component :is="featureItem.icon" class="w-5 h-5 text-yellow-600" />
                                 <spam>{{ featureItem.title }}</spam>
                             </div>
@@ -414,8 +428,7 @@ useHead({
             <div class="container mx-auto mt-6">
                 <div class="grid md:grid-cols-2 gap-4 md:gap-6 py-8">
                     <div v-for="img in gallery" :key="img">
-                        <img :src="img"
-                            class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg"
+                        <img :src="img" class="aspect-[2/3] w-full h-auto rounded shadow object-cover hover:shadow-lg"
                             loading="lazy" />
                     </div>
                 </div>

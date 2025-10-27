@@ -1,17 +1,19 @@
     <script setup lang="ts">
     import AppLayout from '@/layouts/app/AppHeaderLayout.vue';
-    import type { BreadcrumbItemType } from '@/types';
+    import type { Auth, BreadcrumbItemType, User } from '@/types';
     import { useEditorState } from '@/store/Editor';
-import MediaPicker from '@/components/media/MediaPicker.vue';
-
+    import MediaPicker from '@/components/media/MediaPicker.vue';
 
     interface Props {
         breadcrumbs?: BreadcrumbItemType[];
+        auth: Auth
     }
 
-    withDefaults(defineProps<Props>(), {
+    const props = withDefaults(defineProps<Props>(), {
         breadcrumbs: () => [],
     });
+
+    console.log(props);
 
     const { editorOpen, closeEditor } = useEditorState()
 
@@ -21,5 +23,5 @@ import MediaPicker from '@/components/media/MediaPicker.vue';
         <AppLayout :breadcrumbs="breadcrumbs">
             <slot />
         </AppLayout>
-        <MediaPicker v-if="editorOpen" :src="'hi'" :element-slug="'j'" :element-title="'a'" :close="closeEditor"/>
+        <MediaPicker v-if="editorOpen && props.auth?.user.is_admin" :src="'hi'" :element-slug="'j'" :element-title="'a'" :close="closeEditor"/>
     </template>

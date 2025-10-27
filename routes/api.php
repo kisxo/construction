@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MediaResourcesController;
 use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -49,3 +50,6 @@ Route::post('/pages/{slug}/media', function (Request $request, $slug) {
         'message' => 'Media attached successfully.',
     ]);
 });
+
+
+Route::post('/resources', [MediaResourcesController::class, 'storeOrUpdate']);
