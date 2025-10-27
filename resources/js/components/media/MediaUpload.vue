@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { uploadMedia } from './MediaService'
+import axios from 'axios'
 
 const emit = defineEmits(['uploaded'])
 const input = ref<HTMLInputElement | null>(null)
@@ -24,10 +24,30 @@ const uploadFiles = async (e: Event) => {
   if (!files) return
 
   for (const file of Array.from(files)) {
-    const form = new FormData()
-    form.append('file', file)
-    await uploadMedia(form)
+    // Step 1: Get Presigned URL
+    const presignRes = await axios.post('/api/media/presign', {
+      filename: file.name,
+      type: file.type
+    })
+    const { url, path, uuid, filename } = presignRes.data
+
+    // Step 2: Upload file directly to MinIO
+    await fetch(url, {
+      method: 'PUT',
+      headers: { 'Content-Type': file.type },
+      body: file
+    })
+
+    // Step 3: Notify backend to store metadata
+    await axios.post('/api/media/complete', {
+      uuid,
+      path,
+      name: file.name,
+      type: file.type,
+      size: file.size
+    })
   }
+
   emit('uploaded')
 }
 </script>

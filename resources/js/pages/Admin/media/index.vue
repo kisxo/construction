@@ -113,7 +113,7 @@ const submitUpload = () => {
           <div v-for="item in filteredMedia" :key="item.id" class="w-full aspect-square overflow-hidden rounded">
             <img
               v-if="item.variants?.small"
-              :src="'https://minio-hc4.deolang.com/sundaram/' + item.variants.small"
+              :src="'https://minio-hc4.deolang.com/sundaram/' + item.variants.medium"
               :alt="item.original_name"
               class="w-full h-full object-cover"
               loading="lazy"

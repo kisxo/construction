@@ -17,7 +17,7 @@ const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))
 import { useHead } from '@vueuse/head';
 import { Fa6Hotel, Fa6Leaf, Fa6Shield, Fa6Wifi } from 'vue-icons-plus/fa6';
 // import ImageCard from '@/components/ImageCard.vue';
-const ImageCard = defineAsyncComponent(() => import('@/components/ImageCard.vue'))
+import ImageCard from '@/components/ImageCard.vue';
 // import CountingCard from '@/components/CountingCard.vue';
 const CountingCard = defineAsyncComponent(() => import('@/components/CountingCard.vue'))
 import { Io5Call, Io5Mail } from 'vue-icons-plus/io5';
@@ -94,29 +94,31 @@ const keyFeatures = [
 ];
 const signatureProjects = [
   {
-    image: divineGreen,
+    slug: "Signature_Project_1",
     title: "Divine Green",
     link: "/divine-green"
   },
   {
-    image: skyLinkHeight,
+    slug: "Signature_Project_2",
     title: "Sky Link Height",
     link: "/sky-link-heights"
   },
   {
-    image: shivashree,
+    slug: "Signature_Project_3",
     title: "Shivashree",
     link: "/shivashree"
   }
 ];
+
+
 const completedProjects = [
   {
-    image: horoGauri,
+    slug: "Completed_Project_1",
     title: "Horo Gauri",
     link: "/horo-gauri"
   },
   {
-    image: PBArcade,
+    slug: "Completed_Project_2",
     title: "P.B. Arcade",
     link: "/pb-arcade"
   }
@@ -193,7 +195,8 @@ const pathMediaMap = computed(() => {
     <section class="relative w-full h-[70vh] overflow-hidden" id="herotop">
       <Carousel v-bind="carouselConfig" class="w-full h-full">
         <Slide v-for="hero in heroSection">
-          <DynamicMedia :src="pathMediaMap[hero.slug]" :element-slug="hero.slug" :element-title="hero.title" class="w-full h-full brightness-50 object-center" />
+          <DynamicMedia :data="pathMediaMap[hero.slug]" :element-slug="hero.slug" :element-title="hero.title"
+            class="w-full h-full brightness-50 object-center" />
         </Slide>
         <img :src="notFoundImg" alt="">
 
@@ -215,8 +218,8 @@ const pathMediaMap = computed(() => {
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 py-8">
           <div v-for="signature in signatureProjects" :key="signature.title">
             <!-- <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center shadow rounded hover:shadow-xl transition duration-300" /> -->
-            <ImageCard className="hover:border border-black shadow h-[300px]" :image="signature.image"
-              :title="signature.title" :link="signature.link" />
+            <ImageCard class="h-[300px]" :link="signature.link" :data="pathMediaMap[signature.slug]" :element-slug="signature.slug" :element-title="signature.title" />
+            <!-- <DynamicMedia  class="w-full h-full brightness-50 object-center" /> -->
           </div>
         </div>
       </div>
@@ -227,9 +230,7 @@ const pathMediaMap = computed(() => {
         <h2 class="text-center">Completed Projects</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-8">
           <div v-for="completed in completedProjects" :key="completed.title">
-            <!-- <img :src="image" alt="Hero Slide" class="w-full h-[300px] object-cover object-center" /> -->
-            <ImageCard className="shadow h-[300px]" :image="completed.image" :title="completed.title"
-              :link="completed.link" />
+              <ImageCard class="h-[300px]" :link="completed.link" :data="pathMediaMap[completed.slug]" :element-slug="completed.slug" :element-title="completed.title" />
           </div>
         </div>
       </div>

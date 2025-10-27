@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Media;
-use App\Models\MediaFolder;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use League\Flysystem\FilesystemException;
+
 
 class MediaController extends Controller
 {
@@ -66,7 +68,7 @@ class MediaController extends Controller
             'size' => $file->getSize(),
             'width' => $width,
             'height' => $height,
-            'variants' => $this->generateThumbnails($file, $path, $disk),
+            // 'variants' => $this->generateThumbnails($file, $path, $disk),
         ]);
 
         return response()->json($media, 201);
@@ -75,30 +77,30 @@ class MediaController extends Controller
     /**
      * Generate thumbnails for images
      */
-    protected function generateThumbnails($file, $path, $disk)
-    {
-        $manager = new ImageManager(new Driver());
-        if (!str_starts_with($file->getMimeType(), 'image/')) {
-            return null;
-        }
+    // protected function generateThumbnails($file, $path, $disk)
+    // {
+    //     $manager = new ImageManager(new Driver());
+    //     if (!str_starts_with($file->getMimeType(), 'image/')) {
+    //         return null;
+    //     }
 
-        $sizes = [
-            'small' => 150,
-            'medium' => 600,
-            'large' => 1200,
-        ];
+    //     $sizes = [
+    //         'small' => 150,
+    //         'medium' => 600,
+    //         'large' => 1200,
+    //     ];
 
-        $variants = [];
-        foreach ($sizes as $name => $width) {
-            $img = $manager->read($file)->scaleDown(width: $width);
+    //     $variants = [];
+    //     foreach ($sizes as $name => $width) {
+    //         $img = $manager->read($file)->scaleDown(width: $width);
 
-            $thumbPath = Str::replaceLast('.', "-{$name}.", $path);
-            Storage::disk($disk)->put($thumbPath, (string) $img->encode());
-            $variants[$name] = $thumbPath;
-        }
+    //         $thumbPath = Str::replaceLast('.', "-{$name}.", $path);
+    //         Storage::disk($disk)->put($thumbPath, (string) $img->encode());
+    //         $variants[$name] = $thumbPath;
+    //     }
 
-        return $variants;
-    }
+    //     return $variants;
+    // }
 
     /**
      * Show single media

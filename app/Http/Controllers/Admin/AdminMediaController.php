@@ -43,8 +43,7 @@ class AdminMediaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'file' => 'required|file|max:102400', // 100MB
-            'folder_id' => 'nullable|exists:media_folders,id',
+            'file' => 'required|file|max:10240', // 10MB\
         ]);
 
         $file = $request->file('file');
@@ -73,7 +72,7 @@ class AdminMediaController extends Controller
             'size' => $file->getSize(),
             'width' => $width,
             'height' => $height,
-            'variants' => $this->generateThumbnails($file, $path, $disk),
+            // 'variants' => $this->generateThumbnails($file, $path, $disk),
         ]);
 
         return redirect()->back()->with('success', 'File uploaded successfully!');

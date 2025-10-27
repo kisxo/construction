@@ -8,7 +8,7 @@ const page = usePage()
 
 // Define props with improved type safety and defaults
 interface Props {
-    src: any;
+    data: any;
     elementSlug: string;
     elementTitle: string;
     class?: string;
@@ -18,7 +18,7 @@ const props = defineProps<Props>()
 
 const {openEditor}= useEditorState();
 
-const resourceLink = props.src?.media?.variants?.large ? MINIO_ENDPOINT + props.src.media.variants.large : NOTFoundImg;
+const resourceLink = props.data?.media?.variants?.large ? MINIO_ENDPOINT + props.data.media.variants.large : NOTFoundImg;
 </script>
 
 <template>
