@@ -5,13 +5,18 @@ import NavUser from '@/components/NavUser.vue';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { LayoutGrid, GraduationCap, BellRing, PenBoxIcon, User, University } from 'lucide-vue-next';
+import { LayoutGrid, GraduationCap, BellRing, PenBoxIcon, User, Universit, Image } from 'lucide-vue-next';
 import AppLogo from "@/components/AppLogo.vue";
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
         href: '/admin',
         icon: LayoutGrid,
+    },
+    {
+        title: 'Media',
+        href: '/admin/media',
+        icon: Image,
     },
     // {
     //     title: 'Registrations',
