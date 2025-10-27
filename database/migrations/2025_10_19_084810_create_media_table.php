@@ -25,7 +25,6 @@ return new class extends Migration
             $table->unsignedInteger('height')->nullable();
             $table->unsignedInteger('duration')->nullable();
             $table->json('variants')->nullable();
-            $table->foreignId('folder_id')->nullable()->constrained('media_folders')->nullOnDelete();
             $table->boolean('is_public')->default(true);
             $table->json('meta')->nullable();
             $table->timestamps();

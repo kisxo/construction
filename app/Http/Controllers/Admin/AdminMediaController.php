@@ -1,35 +1,41 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Media;
 use App\Models\MediaFolder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Inertia\Inertia;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
-class MediaController extends Controller
+class AdminMediaController extends Controller
 {
     /**
      * List all media
      */
-    public function 
-    index(Request $request)
+    public function index(Request $request)
     {
-        $query = Media::query();
+        // Start query
+        $mediaList = Media::all();
 
-        if ($folderId = $request->get('folder_id')) {
-            $query->where('folder_id', $folderId);
-        }
-
-        if ($search = $request->get('q')) {
-            $query->where('filename', 'like', "%{$search}%");
-        }
-
-        return response()->json($query->latest()->paginate(40));
+        // Return to Inertia
+        return Inertia::render('Admin/media/index', [
+            'mediaList' => $mediaList
+        ]);
     }
+
+
+    public function create(Request $request)
+    {
+        // Return to Inertia
+        return Inertia::render('Admin/media/create', [
+        ]);
+    }
+
 
     /**
      * Upload media
@@ -38,6 +44,7 @@ class MediaController extends Controller
     {
         $request->validate([
             'file' => 'required|file|max:102400', // 100MB
+            'folder_id' => 'nullable|exists:media_folders,id',
         ]);
 
         $file = $request->file('file');
@@ -69,7 +76,7 @@ class MediaController extends Controller
             'variants' => $this->generateThumbnails($file, $path, $disk),
         ]);
 
-        return response()->json($media, 201);
+        return redirect()->back()->with('success', 'File uploaded successfully!');
     }
 
     /**

@@ -27,23 +27,11 @@ class Media extends Model
         });
     }
 
-    public function folder(): BelongsTo
+    /**
+     * Relation: One media can be used by multiple resources
+     */
+    public function resources()
     {
-        return $this->belongsTo(MediaFolder::class);
-    }
-
-    public function tags(): MorphToMany
-    {
-        return $this->morphToMany(MediaTag::class, 'taggable', 'media_tag_assignments');
-    }
-
-    public function mediables()
-    {
-        return $this->hasMany(Mediable::class);
-    }
-
-    public function attachedTo($modelType)
-    {
-        return $this->morphedByMany($modelType, 'mediable');
+        return $this->hasMany(MediaResources::class, 'media_id');
     }
 }
