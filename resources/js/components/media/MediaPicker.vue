@@ -58,15 +58,15 @@ async function updateResource() {
 
   try {
     const res = await axios.post('/api/resources', payload)
-    console.log('✅ Updated successfully', res.data)
+    console.log('Updated successfully', res.data)
     showSuccess.value = true
-    router.reload()
     setTimeout(() => {
-      closeEditor()
       showSuccess.value = false
+      closeEditor()
+      window.location.reload();
     }, 400)
   } catch (err) {
-    console.error('❌ Update failed', err)
+    console.error('Update failed', err)
   } finally {
     isLoading.value = false
   }

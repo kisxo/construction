@@ -10,7 +10,6 @@ interface Props {
 }
 const props = defineProps<Props>()
 
-const fileInput = ref<HTMLInputElement | null>(null)
 const searchQuery = ref('')
 const sortOrder = ref('created_desc')
 const showUploadModal = ref(false) // controls modal visibility
@@ -112,8 +111,8 @@ const submitUpload = () => {
         <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
           <div v-for="item in filteredMedia" :key="item.id" class="w-full aspect-square overflow-hidden rounded">
             <img
-              v-if="item.variants?.small"
-              :src="'https://minio-hc4.deolang.com/sundaram/' + item.variants.medium"
+              v-if="item?.path"
+              :src="'https://minio-hc4.deolang.com/sundaram/' + item.path"
               :alt="item.original_name"
               class="w-full h-full object-cover"
               loading="lazy"

@@ -18,7 +18,7 @@ const props = defineProps<Props>()
 
 const {openEditor}= useEditorState();
 
-const resourceLink = props.data?.media?.variants?.large ? MINIO_ENDPOINT + props.data.media.variants.large : NOTFoundImg;
+const resourceLink = props.data?.media?.path ? MINIO_ENDPOINT + props.data.media.path : NOTFoundImg;
 </script>
 
 <template>
